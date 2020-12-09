@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
+import store from "./redux/configStore";
 
 // Bootstrap
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -12,7 +13,7 @@ import "../node_modules/jquery/dist/jquery.slim.min";
 import "../node_modules/popper.js/dist/popper.min";
 
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById("root")
