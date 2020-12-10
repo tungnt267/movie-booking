@@ -10,7 +10,7 @@ const Header = () => {
         <div className="container-fluid">
           <nav className="navbar navbar-expand-md navbar-light">
             <NavLink className="navbar-brand" to="/">
-              <img src="./images/web-logo.png" alt="web-logo" />
+              <img src="./images/header/web-logo.png" alt="web-logo" />
             </NavLink>
             <button
               className="navbar-toggler"
@@ -23,27 +23,36 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="navbarTix">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link className="nav-link">Lịch Chiếu</Link>
+                  <Link to="/" className="nav-link">
+                    Lịch Chiếu
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link">Cụm rạp</Link>
+                  <Link to="/" className="nav-link">
+                    Cụm rạp
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link">Tin Tức</Link>
+                  <Link to="/" className="nav-link">
+                    Tin Tức
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link">Ứng dụng</Link>
+                  <Link to="/" className="nav-link">
+                    Ứng dụng
+                  </Link>
                 </li>
               </ul>
               <div className="navbar__right">
                 <div className="navbar__right__login">
-                  <img src="./images/avatar.png" alt="avatar" />
+                  <img src="./images/header/avatar.png" alt="avatar" />
                   <NavLink to="/login" className="login">
                     Đăng Nhập
                   </NavLink>
                 </div>
                 <div className="navbar__right__location dropdown d-none d-md-block">
                   <Link
+                    to="/"
                     className="nav-link dropdown-toggle"
                     id="navbarDropdown"
                     role="button"
@@ -53,13 +62,13 @@ const Header = () => {
                   >
                     <img
                       className="location-icon"
-                      src="./images/location-header.png"
+                      src="./images/header/location-header.png"
                       alt="location-header"
                     />
                     <span>Hồ Chí Minh</span>
                     <img
                       className="dropdown-icon"
-                      src="./images/dropdown-icon.png"
+                      src="./images/header/dropdown-icon.png"
                       alt="dropdown-icon"
                     />
                   </Link>
@@ -67,16 +76,36 @@ const Header = () => {
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
-                    <Link className="dropdown-item">Hồ Chí Minh</Link>
-                    <Link className="dropdown-item">Hà Nội</Link>
-                    <Link className="dropdown-item">Đà Nẵng</Link>
-                    <Link className="dropdown-item">Hải Phòng</Link>
-                    <Link className="dropdown-item">Biên Hòa</Link>
-                    <Link className="dropdown-item">Nha Trang</Link>
-                    <Link className="dropdown-item">Bình Dương</Link>
-                    <Link className="dropdown-item">Phan Thiết</Link>
-                    <Link className="dropdown-item">Hạ Long</Link>
-                    <Link className="dropdown-item">Cần Thơ</Link>
+                    <Link to="/" className="dropdown-item">
+                      Hồ Chí Minh
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Hà Nội
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Đà Nẵng
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Hải Phòng
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Biên Hòa
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Nha Trang
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Bình Dương
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Phan Thiết
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Hạ Long
+                    </Link>
+                    <Link to="/" className="dropdown-item">
+                      Cần Thơ
+                    </Link>
                   </div>
                 </div>
               </div>

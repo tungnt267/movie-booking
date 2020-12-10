@@ -1,0 +1,117 @@
+@import '../../styles/styles.scss';
+
+.buy-ticket {
+    display: block;
+    max-width: 940px;
+    margin: auto;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 50%;
+    background-color: getBg("white");
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    transform: translate(-50%, 50%);
+    -webkit-transform: translate(-50%, 50%);
+    -moz-transform: translate(-50%, 50%);
+    -ms-transform: translate(-50%, 50%);
+    -o-transform: translate(-50%, 50%);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+
+    .buy-ticket__item {
+        float: left;
+        position: relative;
+        height: 100%;
+
+        .film-link {
+            display: block;
+            @include text(getColor("black_2"), getFz("body2"), getFw("regular"));
+            padding: spacing(0.3, 2);
+            line-height: 1.5;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -ms-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            text-decoration: none;
+
+            &:hover {
+                background-color: getBg("hell_blue");
+                color: getColor("white");
+            }
+        }
+
+        .select-menu {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background-color: transparent;
+            border: none;
+            color: getColor("black");
+            cursor: pointer;
+            width: 100%;
+            padding: 7%;
+            background-image: url('../../assets/images/dropdown-icon.png');
+            background-repeat: no-repeat;
+            background-position: calc(100% - 8px);
+            overflow: hidden;
+            white-space: nowrap;
+            padding-right: 20px;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+
+            &::after {
+                display: none;
+            }
+        }
+
+        .btn-buy-tk {
+            background-image: none;
+        }
+    }
+
+    .buy-ticket__film {
+        width: 30%;
+
+        .select-scroll {
+            max-height: 300px;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 5px !important;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: getBg("grey_1");
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+            }
+        }
+    }
+
+    .buy-ticket__cinema,
+    .buy-ticket__date,
+    .buy-ticket__show,
+    .buy-ticket__buy {
+        width: calc(70% / 4);
+    }
+}
+
+.test {
+    padding-top: 500px;
+}
