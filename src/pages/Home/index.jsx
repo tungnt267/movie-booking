@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "../../components/Carousel";
+import FilmBlock from "../../components/FilmBlock";
 import Header from "../../components/Header";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Header />
       <Carousel />
+      <FilmBlock />
     </div>
   );
 };
