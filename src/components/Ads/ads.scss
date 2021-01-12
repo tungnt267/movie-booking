@@ -1,0 +1,185 @@
+@import '../../styles/styles.scss';
+
+.app {
+    background: url('../../assets/images/backapp.jpg');
+    background-size: contain;
+    padding-top: spacing(12);
+    padding-bottom: spacing(8);
+
+    &__content {
+        max-width: 940px;
+        margin: auto;
+
+        &__text {
+            color: getColor("white");
+            padding-top: spacing(6);
+
+            .text-top {
+                @include text(getColor("white"), getFz("h4"), getFw("bold"));
+                margin-bottom: spacing(1);
+            }
+
+            .text-small-mid {
+                @include text(getColor("white"), getFz("body1"), getFw("regular"));
+                margin-bottom: spacing(1);
+            }
+
+            .text-app-under {
+                padding-top: spacing(1);
+                margin-bottom: spacing(1);
+                @include text(getColor("white"), getFz("body2"), getFw("regular"));
+
+                .app-link {
+                    text-decoration: underline;
+                    color: getColor("white");
+                }
+            }
+        }
+
+        &__image {
+            .img-mobile {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                padding: 0 28%;
+            }
+
+            .content__carousel {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 1.8% 30.6% 0 30.6%;
+                background-color: transparent;
+
+                .slick-list {
+                    border-radius: 20px;
+                    -webkit-border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    -ms-border-radius: 20px;
+                    -o-border-radius: 20px;
+                }
+
+                .app-slider-img {
+                    position: relative;
+                    height: auto;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    img {
+                        width: 100%;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include respond-to('large') {
+        .app__content__text {
+            padding-left: spacing(5);
+            padding-top: spacing(3);
+
+            .text-top {
+                font-size: getFz("h5");
+            }
+
+            .text-small-mid {
+                font-size: getFz("body2");
+            }
+        }
+
+        .app__content__image {
+
+            .content__carousel {
+                padding-top: 0.95%;
+            }
+        }
+    }
+
+    @include respond-to('medium') {
+        padding-right: spacing(2);
+        padding-left: spacing(2);
+
+        .app__content__text {
+            text-align: center;
+            padding: spacing(2);
+        }
+
+        .app__content__image {
+            .content__carousel {
+                padding: 0.9% 30% 0 30%;
+            }
+
+            .slick-list {
+                border-radius: 30px;
+                -webkit-border-radius: 30px;
+                -moz-border-radius: 30px;
+                -ms-border-radius: 30px;
+                -o-border-radius: 30px;
+            }
+        }
+    }
+
+    @include respond-to('small') {
+        .app__content__image {
+            .content__carousel {
+                padding: 1% 30.5% 0 30.5%;
+            }
+
+            .slick-list {
+                border-radius: 20px;
+                -webkit-border-radius: 20px;
+                -moz-border-radius: 20px;
+                -ms-border-radius: 20px;
+                -o-border-radius: 20px;
+            }
+        }
+    }
+
+    @include respond-to('x-small') {
+        .app__content__text {
+            padding: spacing(1);
+
+            .text-top {
+                margin: 0;
+            }
+
+            .btn-app {
+                font-size: getFz("body2");
+                padding: spacing(1);
+            }
+
+            .text-app-under {
+                font-size: getFz("subtitle2");
+            }
+        }
+
+        .app__content__image {
+            .content__carousel {
+                padding: 1.6% 31.2% 0 31.2%;
+            }
+
+            .slick-list {
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+            }
+        }
+    }
+
+    @media screen and (max-width : 320px) {
+        .app__content__image {
+            .content__carousel {
+                padding: 1% 31.5% 0 31.5%;
+            }
+        }
+    }
+}
