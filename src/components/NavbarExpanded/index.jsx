@@ -16,7 +16,7 @@ const NavbarExpanded = () => {
             <div className="modal-header side-nav__login">
               <img
                 className="login-avatar"
-                src="./images/avatar.png"
+                src="./images/header/avatar.png"
                 alt="avatar"
               />
               <NavLink to="/login" className="modal-title login-text">
@@ -31,17 +31,25 @@ const NavbarExpanded = () => {
                 <span aria-hidden="true">
                   <img
                     className="login-close"
-                    src="./images/next-session.png"
+                    src="./images/header/next-session.png"
                     alt="close-nav"
                   />
                 </span>
               </button>
             </div>
             <div className="modal-body">
-              <Link className="side-nav__link">Lịch Chiếu</Link>
-              <Link className="side-nav__link">Cụm rạp</Link>
-              <Link className="side-nav__link">Tin Tức</Link>
-              <Link className="side-nav__link">Ứng dụng</Link>
+              <Link to="/" className="side-nav__link">
+                Lịch Chiếu
+              </Link>
+              <Link to="/" className="side-nav__link">
+                Cụm rạp
+              </Link>
+              <Link to="/" className="side-nav__link">
+                Tin Tức
+              </Link>
+              <Link to="/" className="side-nav__link">
+                Ứng dụng
+              </Link>
             </div>
             {/* Button trigger modal */}
             <button
@@ -63,90 +71,90 @@ const NavbarExpanded = () => {
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-body">
-                    <a className="dropdown-item" href="#">
+                    <Link to="/" className="dropdown-item">
                       Hồ Chí Minh
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Hà Nội
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Đà Nẵng
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Hải Phòng
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Biên Hòa
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Nha Trang
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Bình Dương
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Phan Thiết
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Hạ Long
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Cần Thơ
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Vũng Tàu
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Quy Nhơn
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Huế
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Long Xuyên
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Hồ Chí Minh
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Hà Nội
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Đà Nẵng
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Hải Phòng
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Biên Hòa
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Nha Trang
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Bình Dương
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Phan Thiết
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Hạ Long
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Cần Thơ
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Vũng Tàu
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Quy Nhơn
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Huế
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link to="/" className="dropdown-item">
                       Long Xuyên
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
