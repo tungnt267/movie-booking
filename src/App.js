@@ -4,10 +4,6 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import SignUp from "./pages/Signup";
 import Login from "./pages/Login";
-<<<<<<< HEAD
-import Footer from "./components/Footer";
-=======
->>>>>>> 250a947430761e18d559cf70afc91696098ba0a2
 
 function App() {
   return (
