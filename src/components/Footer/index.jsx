@@ -34,19 +34,31 @@ const Footer = () => {
                   to="https://www.cgv.vn/"
                   title="CGV"
                 >
-                  <img className="partner-img" src="../images/footer/cgv.png" />
+                  <img
+                    className="partner-img"
+                    src="../images/footer/cgv.png"
+                    alt="partner1"
+                  />
                 </Link>
-                <a target="_blank" href="http://bhdstar.vn" title="BHD">
-                  <img className="partner-img" src="../images/footer/bhd.png" />
-                </a>
-                <a target="_blank" href="http://galaxycine.vn" title="Galaxy">
+                <Link target="_blank" href="http://bhdstar.vn" title="BHD">
+                  <img
+                    className="partner-img"
+                    src="../images/footer/bhd.png"
+                    alt="partner1"
+                  />
+                </Link>
+                <Link
+                  target="_blank"
+                  href="http://galaxycine.vn"
+                  title="Galaxy"
+                >
                   <img
                     className="partner-img"
                     src="../images/footer/galaxycine.png"
                     alt="galaxycine"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
                   href="http://cinestar.com.vn"
                   title="Cinestar"
@@ -54,9 +66,10 @@ const Footer = () => {
                   <img
                     className="partner-img"
                     src="../images/footer/cinestar.png"
+                    alt="partner1"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
                   href="http://lottecinemavn.com"
                   title="Lotte Cinema"
@@ -65,11 +78,12 @@ const Footer = () => {
                     className="partner-img"
                     ng-src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png"
                     src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png"
+                    alt="partner1"
                   />
-                </a>
+                </Link>
               </div>
               <div className="row col-sm-12 col-xs-12 line-partner">
-                <a
+                <Link
                   target="_blank"
                   href="https://www.megagscinemas.vn"
                   title="MegaGS"
@@ -77,22 +91,28 @@ const Footer = () => {
                   <img
                     className="partner-img"
                     src="../images/footer/megags.png"
+                    alt="partner1"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
                   href="https://www.betacineplex.vn/"
                   title="Beta"
                 >
-                  <img className="partner-img" src="../images/footer/bt.jpg" />
-                </a>
-                <a target="_blank" href="http://ddcinema.vn" title="DDC">
+                  <img
+                    className="partner-img"
+                    src="../images/footer/bt.jpg"
+                    alt="partner1"
+                  />
+                </Link>
+                <Link target="_blank" href="http://ddcinema.vn" title="DDC">
                   <img
                     className="partner-img"
                     src="../images/footer/dongdacinema.png"
+                    alt="partner1"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
                   href="https://touchcinema.com/"
                   title="Touch Cinema"
@@ -100,18 +120,23 @@ const Footer = () => {
                   <img
                     className="partner-img"
                     src="../images/footer/TOUCH.png"
+                    alt="partner1"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
                   href="https://cinemaxvn.com/"
                   title="Cinemax"
                 >
-                  <img className="partner-img" src="../images/footer/cnx.jpg" />
-                </a>
+                  <img
+                    className="partner-img"
+                    src="../images/footer/cnx.jpg"
+                    alt="partner1"
+                  />
+                </Link>
               </div>
               <div className="row col-sm-12 col-xs-12 line-partner">
-                <a
+                <Link
                   target="_blank"
                   href="http://starlight.vn/"
                   title="Starlight"
@@ -119,36 +144,56 @@ const Footer = () => {
                   <img
                     className="partner-img"
                     src="../images/footer/STARLIGHT.png"
+                    alt="partner1"
                   />
-                </a>
-                <a target="_blank" href="https://www.dcine.vn/" title="Dcine">
+                </Link>
+                <Link
+                  target="_blank"
+                  href="https://www.dcine.vn/"
+                  title="Dcine"
+                >
                   <img
                     className="partner-img"
                     src="../images/footer/dcine.png"
+                    alt="partner1"
                   />
-                </a>
-                <a target="_blank" href="https://zalopay.vn/" title="ZaloPay">
+                </Link>
+                <Link
+                  target="_blank"
+                  href="https://zalopay.vn/"
+                  title="ZaloPay"
+                >
                   <img
                     className="partner-img"
                     src="../images/footer/zalopay_icon.png"
+                    alt="partner1"
                   />
-                </a>
-                <a target="_blank" href="https://www.payoo.vn/" title="Payoo">
+                </Link>
+                <Link
+                  target="_blank"
+                  href="https://www.payoo.vn/"
+                  title="Payoo"
+                >
                   <img
                     className="partner-img"
                     src="../images/footer/payoo.jpg"
+                    alt="partner1"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
                   href="https://www.vietcombank.com.vn/"
                   title="Vietcombank"
                 >
-                  <img className="partner-img" src="../images/footer/VCB.png" />
-                </a>
+                  <img
+                    className="partner-img"
+                    src="../images/footer/VCB.png"
+                    alt="partner1"
+                  />
+                </Link>
               </div>
               <div className="row col-sm-12 col-xs-12 line-partner">
-                <a
+                <Link
                   target="_blank"
                   href="http://www.agribank.com.vn/"
                   title="Agribank"
@@ -156,9 +201,10 @@ const Footer = () => {
                   <img
                     className="partner-img"
                     src="../images/footer/AGRIBANK.png"
+                    alt="partner1"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
                   href="https://www.vietinbank.vn/"
                   title="Vietinbank"
@@ -166,27 +212,34 @@ const Footer = () => {
                   <img
                     className="partner-img"
                     src="../images/footer/VIETTINBANK.png"
+                    alt="partner1"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   target="_blank"
                   href="https://www.indovinabank.com.vn/"
                   title="IVB"
                 >
-                  <img className="partner-img" src="../images/footer/IVB.png" />
-                </a>
-                <a target="_blank" href="http://123go.vn" title="123Go">
+                  <img
+                    className="partner-img"
+                    src="../images/footer/IVB.png"
+                    alt="partner1"
+                  />
+                </Link>
+                <Link target="_blank" href="http://123go.vn" title="123Go">
                   <img
                     className="partner-img"
                     src="../images/footer/123go.png"
+                    alt="partner1"
                   />
-                </a>
-                <a target="_blank" href="http://laban.vn" title="La Bàn">
+                </Link>
+                <Link target="_blank" href="http://laban.vn" title="La Bàn">
                   <img
                     className="partner-img"
                     src="../images/footer/laban.png"
+                    alt="partner1"
                   />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-lg-4">
@@ -194,20 +247,20 @@ const Footer = () => {
                 <div className="col-6 d-none d-lg-block">
                   <p className="footer__contact__title">MOBILE APP</p>
                   <div className="contact-app">
-                    <a href="#">
+                    <Link href="#">
                       <img
                         className="icon-app"
                         src="../images/footer/apple-logo.png"
                         alt="app-logo"
                       />
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link href="#">
                       <img
                         className="icon-app"
                         src="../images/footer/android-logo.png"
                         alt="app-logo"
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="col-6 col-6--config">
@@ -215,20 +268,20 @@ const Footer = () => {
                     SOCIAL
                   </p>
                   <div className="contact-social">
-                    <a href="#">
+                    <Link href="#">
                       <img
                         className="icon-social"
                         src="../images/footer/facebook-logo.png"
                         alt="social-logo"
                       />
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link href="#">
                       <img
                         className="icon-social"
                         src="../images/footer/zalo-logo.png"
                         alt="social-logo"
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -256,7 +309,7 @@ const Footer = () => {
                 đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế
                 hoạch và đầu tư Thành phố Hồ Chí Minh cấp. <br />
                 Số Điện Thoại (Hotline): 1900 545 436 <br />
-                Email: <a href="#">support@tix.vn</a>
+                Email: <Link href="#">support@tix.vn</Link>
               </p>
             </div>
             <div className="col-md-3 col-lg-2 text-center text-md-right mt-3 mt-md-0 p-md-0">
