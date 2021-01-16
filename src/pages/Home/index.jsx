@@ -1,16 +1,18 @@
 import React from "react";
-import Ads from "../../components/Ads";
+// import Ads from "../../components/Ads";
 import Carousel from "../../components/Carousel";
-import FilmBlock from "../../components/FilmBlock";
+// import FilmBlock from "../../components/FilmBlock";
 import Header from "../../components/Header";
+import MovieTime from "../../components/MovieTime";
 
 const Home = () => {
   return (
     <div>
-      <Ads />
       <Header />
       <Carousel />
-      <FilmBlock />
+      {/* <FilmBlock /> */}
+      <MovieTime />
+      {/* <Ads /> */}
     </div>
   );
 };

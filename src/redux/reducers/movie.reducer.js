@@ -1,7 +1,7 @@
 import { GET_MOVIE_LIST_SUCCESS } from "../constants/movie.constant";
 
 const initialState = {
-  movieList: [],
+  movieList: null,
 };
 
 const movieReducer = (state = initialState, action) => {

@@ -13,8 +13,8 @@ import "../node_modules/jquery/dist/jquery.slim.min";
 import "../node_modules/popper.js/dist/popper.min";
 
 // Slick-slider
-import "../node_modules/slick-carousel/slick/slick.css";
-import "../node_modules/slick-carousel/slick/slick-theme.css";
+// import "../node_modules/slick-carousel/slick/slick.css";
+// import "../node_modules/slick-carousel/slick/slick-theme.css";
 
 ReactDOM.render(
   <Provider store={store}>

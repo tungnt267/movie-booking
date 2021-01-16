@@ -1,38 +1,43 @@
 import React from "react";
+import { useRef } from "react";
 import Slider from "react-slick";
 import "./filmBlock.scss";
 
 const FilmBlock = () => {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
+  const ref = useRef({});
 
-    // loop: true,
-    margin: 15,
-    // nav: true,
-    // dots: false,
-    // responsive: {
-    //   0: {
-    //     items: 1,
-    //     slideBy: 1,
+  const settings = {
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: true,
+    infinite: false,
+    rows: 2,
+    // responsive: [
+    //   {
+    //     breakpoint: 1198,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 2,
+    //       rows: 2,
+    //     },
     //   },
-    //   576: {
-    //     items: 2,
-    //     slideBy: 2,
+    //   {
+    //     breakpoint: 576,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1,
+    //       rows: 1,
+    //     },
     //   },
-    //   768: {
-    //     items: 3,
-    //     slideBy: 3,
-    //   },
-    //   992: {
-    //     items: 4,
-    //     slideBy: 4,
-    //   },
-    // },
+    // ],
   };
+
+  const renderSlides = () =>
+    [1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+      <div>
+        <h3>Slide {num}</h3>
+      </div>
+    ));
 
   return (
     <div>
@@ -58,27 +63,32 @@ const FilmBlock = () => {
           {/* Tab panes */}
           <div className="tab-content">
             <div className="tab-pane container active p-0" id="nowShowing">
-              {/* <div
-                className="film-block__list owl-carousel owl-theme"
-                id="filmBlockNow"
-              > */}
-              <Slider {...settings}>
+              <Slider ref={ref} {...settings}>
+                {renderSlides()}
+              </Slider>
+              {/* <Slider ref={ref} {...settings}>
                 <div className="film-block__item">
                   <div className="card">
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img
+                          src="../images/filmBlock/star1.2.png"
+                          alt="star1.2"
+                        />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-1">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img
+                            src="../images/carousel/play-video.png"
+                            alt="play-video"
+                          />
                         </button>
                       </div>
                     </div>
@@ -97,17 +107,23 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img
+                          src="../images/filmBlock/star1.2.png"
+                          alt="star1.2"
+                        />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-2">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img
+                            src="../images/carousel/play-video.png"
+                            alt="play-video"
+                          />
                         </button>
                       </div>
                     </div>
@@ -128,17 +144,23 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img
+                          src="../images/filmBlock/star1.2.png"
+                          alt="star1.2"
+                        />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-10">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img
+                            src="../images/carousel/play-video.png"
+                            alt="play-video"
+                          />
                         </button>
                       </div>
                     </div>
@@ -157,17 +179,23 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img
+                          src="../images/filmBlock/star1.2.png"
+                          alt="star1.2"
+                        />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-3">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img
+                            src="../images/carousel/play-video.png"
+                            alt="play-video"
+                          />
                         </button>
                       </div>
                     </div>
@@ -183,22 +211,22 @@ const FilmBlock = () => {
                     </a>
                   </div>
                 </div>
-                <div className="film-block__item">
+                {/* <div className="film-block__item">
                   <div className="card">
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-4">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -217,17 +245,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-5">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -248,17 +276,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-6">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -277,17 +305,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-7">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -308,17 +336,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-8">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -337,17 +365,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-9">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -368,17 +396,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-10">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -397,17 +425,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-9">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -428,17 +456,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-1">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -457,17 +485,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-2">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -488,17 +516,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-10">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -517,17 +545,17 @@ const FilmBlock = () => {
                     <span className="film__rating">
                       <p className="rating__text">8.8</p>
                       <p className="rating__star">
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.png" alt="star1" />
-                        <img src="../img/star1.2.png" alt="star1.2" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.png" alt="star1" />
+                        <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
                       </p>
                     </span>
                     <div className="film__thumbnail thumb-3">
                       <div className="film__overlay">
                         <button className="btn-trailer">
-                          <img src="../img/play-video.png" alt="play-video" />
+                          <img src="../images/carousel/play-video.png" alt="play-video" />
                         </button>
                       </div>
                     </div>
@@ -542,9 +570,8 @@ const FilmBlock = () => {
                       Mua vé
                     </a>
                   </div>
-                </div>
-              </Slider>
-              {/* </div> */}
+                </div> */}
+              {/* </Slider> */}
             </div>
           </div>
         </div>
