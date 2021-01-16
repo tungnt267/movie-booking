@@ -16,7 +16,7 @@ const NavbarExpanded = () => {
             <div className="modal-header side-nav__login">
               <img
                 className="login-avatar"
-                src="./images/header/avatar.png"
+                src="../images/header/avatar.png"
                 alt="avatar"
               />
               <NavLink to="/login" className="modal-title login-text">
@@ -31,7 +31,7 @@ const NavbarExpanded = () => {
                 <span aria-hidden="true">
                   <img
                     className="login-close"
-                    src="./images/header/next-session.png"
+                    src="../images/header/next-session.png"
                     alt="close-nav"
                   />
                 </span>

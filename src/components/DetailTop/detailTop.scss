@@ -1,0 +1,186 @@
+@import '../../styles/styles.scss';
+
+// .header {
+//     .dropdown-toggle::after {
+//       display: none;
+//     }
+// }
+  
+.detail-top {
+    position: relative;
+    top: 60px;
+    // background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
+    background: url('../../assets/images/detail/sac-dep-doi-tra-false-beauty-c16.jpg') no-repeat center center;
+    background-size: cover;
+    padding: spacing(5, 0);
+  
+    .detail-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
+    }
+  
+    &__content {
+      width: 100%;
+  
+      .detail-img {
+        position: relative;
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -ms-transition: all 0.2s;
+        -o-transition: all 0.2s;
+  
+        .cinema-img {
+          background: url("../../assets/images/detail/sac-dep-doi-tra-false-beauty.jpg");
+          padding-top: 150%;
+          background-position: center, 0 0;
+          background-size: 100% auto;
+          background-repeat: no-repeat, repeat-y;
+          border-radius: 4px;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          -ms-border-radius: 4px;
+          -o-border-radius: 4px;
+        }
+  
+        &:hover {
+          .btn-trailer {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  
+    &__text {
+      padding-top: 20%;
+      @include text(getColor("white_2"), getFz("body2"), getFw("regular"));
+  
+      .parent-info2 {
+        @include text(getColor("white_2"), getFz("h5"), getFw("medium"));
+  
+        .detail-info2 {
+          vertical-align: middle;
+  
+          .sp-info2 {
+            background-color: getBg("primary");
+            @include text(getColor("white"), getFz("h6"), getFw("regular"));
+            padding: spacing(0, 0.5);
+            text-align: center;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            display: inline-block;
+            margin-right: spacing(0.5);
+            margin-bottom: spacing(0.5);
+          }
+        }
+      }
+    }
+  
+    &__rating {
+      padding-top: spacing(8);
+      text-align: center;
+  
+      .rating-circle {
+        @include text(getColor("white"), getFz("body2") * 3, getFw("medium"));
+        border: 8px solid #7ed321;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        padding: spacing(3, 2.8);
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+  
+      .rating-star {
+        padding-top: spacing(4);
+      }
+  
+      .rating-text {
+        display: inline-block;
+        margin-top: spacing(1);
+        color: getColor("white");
+      }
+    }
+  
+    @include respond-to("extra-large") {
+      &__rating {
+        .rating-circle {
+          font-size: getFz("body2") * 2;
+          padding: spacing(2.5, 2.2);
+          border: 5px solid #7ed321;
+        }
+  
+        .rating-star {
+          padding-top: spacing(3);
+  
+          img {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+  
+    @include respond-to("large") {
+      &__rating {
+        padding-top: spacing(5);
+  
+        .rating-circle {
+          font-size: getFz("body2") * 2;
+          padding: spacing(2, 1.8);
+          border: 5px solid #7ed321;
+        }
+  
+        .rating-star {
+          img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+  
+        .rating-text {
+          margin-top: spacing(0.5);
+        }
+      }
+    }
+  
+    @include respond-to("medium") {
+      position: static;
+      background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
+      padding-top: spacing(6);
+  
+      &__text {
+        padding-top: spacing(1);
+      }
+  
+      .cinema-img-md {
+        position: relative;
+  
+        &:hover {
+          .btn-trailer {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  
+    @include respond-to("small") {
+      &__content {
+        top: 38%;
+      }
+    }
+  
+    @include respond-to("x-small") {
+      &__content {
+        top: 30%;
+      }
+    }
+  }

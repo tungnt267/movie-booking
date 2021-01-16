@@ -10,7 +10,7 @@ const Header = () => {
         <div className="container-fluid">
           <nav className="navbar navbar-expand-md navbar-light">
             <NavLink className="navbar-brand" to="/">
-              <img src="./images/header/web-logo.png" alt="web-logo" />
+              <img src="../images/header/web-logo.png" alt="web-logo" />
             </NavLink>
             <button
               className="navbar-toggler"
@@ -45,7 +45,7 @@ const Header = () => {
               </ul>
               <div className="navbar__right">
                 <div className="navbar__right__login">
-                  <img src="./images/header/avatar.png" alt="avatar" />
+                  <img src="../images/header/avatar.png" alt="avatar" />
                   <NavLink to="/login" className="login">
                     Đăng Nhập
                   </NavLink>
@@ -62,13 +62,13 @@ const Header = () => {
                   >
                     <img
                       className="location-icon"
-                      src="./images/header/location-header.png"
+                      src="../images/header/location-header.png"
                       alt="location-header"
                     />
                     <span>Hồ Chí Minh</span>
                     <img
                       className="dropdown-icon"
-                      src="./images/header/dropdown-icon.png"
+                      src="../images/header/dropdown-icon.png"
                       alt="dropdown-icon"
                     />
                   </Link>

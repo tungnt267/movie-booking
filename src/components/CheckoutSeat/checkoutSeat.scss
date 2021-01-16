@@ -1,0 +1,328 @@
+@import '../../styles/styles.scss';
+.checkout {
+    // position: relative;
+    // background: url('https://s3img.vcdn.vn/123phim/2020/11/gia-dinh-croods-ky-nguyen-moi-the-croods-new-age-p-16057775991222.png') center center no-repeat;
+    // background-size: cover;
+    // height: 100%;
+  
+    &__header {
+      position: fixed;
+      width: 75%;
+      background-color: getBg("white");
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      top: 0;
+      left: 0;
+      height: 80px;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .pick-seat {
+        &__text {
+          position: relative;
+          line-height: 80px;
+          padding: spacing(0, 3);
+          @include text(getColor("black_2"),
+            getFz("subtitle2"),
+            getFw("medium"));
+  
+          .pick-seat__step {
+            font-size: getFz("body1") + 2;
+            margin-right: spacing(0.5);
+          }
+        }
+  
+        &__text.active {
+          color: getColor("primary");
+        }
+      }
+  
+      .header__user {
+        cursor: pointer;
+        text-align: right;
+        padding-right: spacing(2);
+        line-height: 80px;
+  
+        .user-img {
+          width: 30px;
+          height: 30px;
+          margin-right: 5px;
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          -ms-border-radius: 50%;
+          -o-border-radius: 50%;
+        }
+  
+        .user__text {
+          @include text(getColor("grey_2"), getFz("body2"), getFw("regular"));
+        }
+      }
+    }
+  
+    &__content {
+      padding-top: spacing(3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: spacing(8);
+  
+      .left-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        .logo-cinema {
+          .logo {
+            width: 45px;
+            height: 45px;
+          }
+        }
+  
+        .content-cinema {
+          padding-left: spacing(1);
+  
+          .p-address {
+            margin: 0;
+            @include text(getColor("black_2"), getFz("body1"), getFw("regular"));
+  
+            .p-cinema {
+              color: getColor("address_text_name");
+            }
+          }
+  
+          .p-hour {
+            margin: 0;
+            @include text(getColor("grey_2"), getFz("body2"), getFw("regular"));
+          }
+        }
+      }
+  
+      .right-title {
+        .info1 {
+          margin: 0;
+          @include text(getColor("grey_2"), getFz("subtitle2") - 2, getFw("regular"));
+        }
+  
+        .info2 {
+          margin: 0;
+          @include text(getColor("primary"), getFz("h4") - 3, getFw("regular"));
+        }
+      }
+    }
+  
+    .seat-map {
+      padding-top: spacing(2);
+  
+      .seat-list {
+        display: flex;
+        justify-content: space-around;
+  
+        .tbl-seat-list {
+          .tr-seat {
+            .th-seat {
+              @include text(getColor("black_2"), getFz("h6"), getFw("regular"));
+              padding-right: spacing(12);
+              text-align: center;
+            }
+  
+            .fa-chair {
+              font-size: getFz("h6");
+              color: getColor("black_2");
+              margin-right: spacing(1.5);
+              cursor: pointer;
+            }
+  
+            .fa-couch {
+              font-size: getFz("h5");
+              color: #b03550;
+              cursor: pointer;
+            }
+  
+            .vip-seat {
+              color: #f7b500;
+            }
+          }
+        }
+      }
+  
+      .seat-type {
+        display: flex;
+        justify-content: center;
+        padding-top: spacing(3.5);
+        text-align: center;
+  
+        .type {
+          padding: spacing(0, 1.2);
+  
+          .fa-chair {
+            font-size: getFz("body2");
+            color: getColor("black_2");
+          }
+  
+          .type-text {
+            @include text(getColor("grey_2"), getFz("subtitle2"), getFw("regular"));
+          }
+  
+          .vip-seat {
+            color: #f7b500;
+          }
+  
+          .fa-couch {
+            color: #b03550;
+          }
+  
+          .selecting {
+            color: #44c020;
+          }
+  
+          .selected {
+            color: getColor("grey_1");
+          }
+  
+          .unable {
+            color: #cfd3d6;
+          }
+        }
+      }
+    }
+  
+    @include respond-to("large") {
+      .seat-map {
+        padding-top: spacing(2);
+  
+        .seat-list {
+          display: flex;
+          justify-content: space-around;
+  
+          .tbl-seat-list {
+            .tr-seat {
+              .th-seat {
+                padding-right: spacing(4);
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    @include respond-to("medium") {
+      .row-checkout {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+  
+        .checkout__header {
+          width: 100%;
+  
+          .header-md {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+      
+    }
+  
+    @include respond-to("small") {
+      .checkout__content {
+        .left-title {
+          .logo-cinema {
+            .logo {
+              width: 30px;
+              height: 30px;
+            }
+          }
+  
+          .content-cinema {
+            .p-address {
+              font-size: getFz("subtitle1");
+            }
+          }
+        }
+  
+        .right-title {
+          .info2 {
+            font-size: getFz("h5");
+          }
+        }
+      }
+  
+      .seat-list {
+        justify-content: space-around;
+  
+        .tbl-seat-list {
+          .tr-seat {
+            .th-seat {
+              padding-right: spacing(2.5) !important;
+              font-size: getFz("body2") !important;
+            }
+  
+            .fa-chair {
+              font-size: getFz("body2") !important;
+              margin-right: spacing(1) !important;
+            }
+  
+            .fa-couch {
+              font-size: getFz("body1") !important;
+            }
+          }
+        }
+      }
+    }
+  
+    @include respond-to("x-small") {
+      .checkout__content {
+        flex-direction: column;
+  
+        .left-title {
+          .content-cinema {
+            .p-address {
+              font-size: getFz("subtitle2");
+            }
+          }
+        }
+  
+        .right-title {
+          margin-top: spacing(1);
+        }
+      }
+  
+      .seat-list {
+        justify-content: space-around;
+  
+        .tbl-seat-list {
+          .tr-seat {
+            .th-seat {
+              padding-right: spacing(2) !important;
+              font-size: getFz("subtitle2") !important;
+            }
+  
+            .fa-chair {
+              font-size: getFz("subtitle2") !important;
+              margin-right: spacing(0.5) !important;
+            }
+  
+            .fa-couch {
+              font-size: getFz("body2") !important;
+            }
+          }
+        }
+      }
+  
+      .seat-type {
+        .type {
+          padding: spacing(0, 0.6) !important;
+  
+          .fa-chair {
+            font-size: getFz("subtitle2") - 2 !important;
+          }
+  
+          .type-text {
+            font-size: getFz("subtitle2") - 2 !important;
+          }
+        }
+      }
+    }
+  }
