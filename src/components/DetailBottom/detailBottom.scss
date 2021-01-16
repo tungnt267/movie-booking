@@ -1,0 +1,204 @@
+@import '../../styles/styles.scss';
+.detail-bottom {
+    width: 100%;
+    background: #0a2029;
+    padding-top: spacing(2);
+
+    &__info {
+        .info__tab {
+            .nav-tabs {
+                position: relative;
+                border: none;
+                justify-content: center;
+
+                .nav-item {
+                    .nav-link {
+                        @include text(getColor("white"), getFz("h6"), getFw("regular"));
+                        border: none;
+                        line-height: 24px;
+                        height: 24px;
+                        transition: all 0.2s;
+                        -webkit-transition: all 0.2s;
+                        -moz-transition: all 0.2s;
+                        -ms-transition: all 0.2s;
+                        -o-transition: all 0.2s;
+
+                        &:hover {
+                            font-size: getFz("h5");
+                        }
+                    }
+
+                    .nav-link.active {
+                        @include text(getColor("primary"), getFz("h5"), getFw("regular"));
+                        cursor: default;
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            .tab-content {
+                .info-detail {
+                    padding-top: spacing(5);
+                    color: getColor("white");
+                    font-size: getFz("body2");
+                    padding-left: 20%;
+
+                    .left-info {
+                        .content-title {
+                            width: 40%;
+                        }
+
+                        .content-info {
+                            width: 40%;
+                        }
+                    }
+                }
+
+                .info-content-main {
+                    padding-top: spacing(5);
+                    color: getColor("white");
+                    font-size: getFz("body2");
+                    text-align: justify;
+                }
+
+                .info-evaluate {
+                    cursor: pointer;
+                    padding-top: spacing(5);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-grow: 1;
+
+                    .input-reviewer {
+                        position: relative;
+                        flex-grow: 1;
+                        padding: spacing(2, 1);
+                        border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        -ms-border-radius: 5px;
+                        -o-border-radius: 5px;
+                        outline: none;
+                        border: none;
+                        cursor: pointer;
+
+                        &::-webkit-input-placeholder {
+                            padding-left: spacing(5);
+                        }
+
+                        &::-moz-placeholder {
+                            padding-left: spacing(6);
+                        }
+
+                        &:-ms-input-placeholder {
+                            padding-left: spacing(6);
+                        }
+
+                        &::-ms-input-placeholder {
+                            padding-left: spacing(6);
+                        }
+
+                        &::placeholder {
+                            padding-left: spacing(6);
+                        }
+                    }
+
+                    .user-avatar {
+                        position: absolute;
+                        z-index: 2;
+                        top: 52%;
+                        left: 30px;
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        -ms-border-radius: 50%;
+                        -o-border-radius: 50%;
+                    }
+
+                    .img-reviewer-star {
+                        position: absolute;
+                        z-index: 2;
+                        right: 30px;
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+
+    @include respond-to("small") {
+        .info-detail {
+            padding-top: spacing(3) !important;
+        }
+
+        .info-content-main {
+            padding: spacing(2) !important;
+            font-size: getFz("subtitle2") !important;
+        }
+
+        .input-reviewer {
+            padding: spacing(1) !important;
+
+            &::-webkit-input-placeholder {
+                font-size: getFz("subtitle2");
+            }
+
+            &::-moz-placeholder {
+                font-size: getFz("subtitle2");
+            }
+
+            &:-ms-input-placeholder {
+                font-size: getFz("subtitle2");
+            }
+
+            &::-ms-input-placeholder {
+                font-size: getFz("subtitle2");
+            }
+
+            &::placeholder {
+                font-size: getFz("subtitle2");
+            }
+        }
+
+        .user-avatar {
+            top: 60% !important;
+            left: 10%;
+            width: 30px !important;
+            height: 30px !important;
+        }
+
+        .img-reviewer-star {
+            display: none;
+        }
+    }
+
+    @include respond-to("x-small") {
+        .user-avatar {
+            display: none;
+        }
+
+        .input-reviewer {
+            &::-webkit-input-placeholder {
+                padding-left: spacing(1) !important;
+            }
+
+            &::-moz-placeholder {
+                padding-left: spacing(1) !important;
+            }
+
+            &:-ms-input-placeholder {
+                padding-left: spacing(1) !important;
+            }
+
+            &::-ms-input-placeholder {
+                padding-left: spacing(1) !important;
+            }
+
+            &::placeholder {
+                padding-left: spacing(1) !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,243 @@
+@import '../../styles/styles.scss';
+.col-right {
+    background-color: getBg("white");
+    position: fixed !important;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    overflow-y: auto;
+    height: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+
+    .checkout__form {
+        .checkout__form__item {
+            border-bottom: 1px dashed #e9e9e9;
+            padding: spacing(1, 1.5);
+        }
+
+        .cash-text {
+            text-align: center;
+
+            p {
+                color: getColor("green");
+                font-size: getFz("h4") + 2;
+                margin: 0;
+            }
+        }
+
+        .cinema-info {
+            @include text(getColor("black"), getFz("body2"), getFw("regular"));
+
+            .name-title {
+                color: getColor("white");
+                background-color: getBg("green");
+                padding: spacing(0.2, 1);
+                    margin-right: spacing(0.5);
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+            }
+
+            .content-cinema {
+                color: getColor("black_2");
+            }
+        }
+
+        .chair {
+            font-size: getFz("body2");
+            display: flex;
+            justify-content: space-between;
+
+            &__info {
+                span {
+                    color: getColor("primary");
+                }
+            }
+
+            &__cash {
+                span {
+                    color: getColor("green");
+                }
+            }
+        }
+
+        .email {
+            label {
+                @include text(getColor("grey_2"), getFz("subtitle2"), getFw("regular"));
+                display: block;
+                margin-bottom: spacing(0);
+
+            }
+
+            input {
+                display: block;
+                width: 100%;
+                border: none;
+                outline: none;
+                @include text(getColor("black"), getFz("subtitle1"), getFw("regular"));
+            }
+        }
+
+        .phone {
+            label {
+                @include text(getColor("grey_2"), getFz("body1"), getFw("regular"));
+                display: block;
+                margin-bottom: spacing(0);
+
+            }
+
+            input {
+                display: block;
+                width: 100%;
+                border: none;
+                outline: none;
+                @include text(getColor("black"), getFz("subtitle1"), getFw("regular"));
+            }
+        }
+
+        .voucher {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .voucher-left{
+                width: 60%;
+            }
+            label {
+                @include text(getColor("grey_2"), getFz("subtitle2"), getFw("regular"));
+                display: block;
+                margin-bottom: spacing(0);
+            }
+
+            input {
+                border: none;
+                outline: none;
+                @include text(getColor("black"), getFz("subtitle1"), getFw("regular"));
+
+                &::-webkit-input-placeholder {
+                    color: getColor("black");
+                }
+
+                &::-moz-placeholder {
+                    color: getColor("black");
+                }
+
+                &:-ms-input-placeholder {
+                    color: getColor("black");
+                }
+
+                &::-ms-input-placeholder {
+                    color: getColor("black");
+                }
+
+                &::placeholder {
+                    color: getColor("black");
+                }
+
+                &:focus {
+                    text-transform: uppercase;
+                }
+            }
+            .btn-apply {
+                margin: auto;
+                margin-right: 5%;
+                width: 80px;
+                line-height: 15px;
+                @include text(getColor("white"), getFz("subtitle2"), getFw("regular"));
+
+            }
+        }
+
+        .payment {
+            padding: spacing(1, 1.5);
+            margin-bottom: 40%;
+
+            .form-check-inline {
+                padding: spacing(0.5, 0);
+                display: block;
+            }
+
+            .img-payment {
+                width: 25px;
+                height: 25px;
+            }
+
+            .sp-payment {
+                @include text(getColor("black_2"), getFz("body2"), getFw("regular"));
+                margin-left: spacing(1);
+            }
+        }
+
+        .notice {
+            padding: spacing(2, 1.5);
+            text-align: center;
+            @include text(getColor("black_2"), getFz("subtitle2"), getFw("regular"));
+            position:absolute;
+            bottom:spacing(5);
+            z-index: 2;
+
+
+            .icon {
+                width: 16px;
+                height: 16px;
+                margin-right: spacing(0.5);
+            }
+
+            .sp-notice {
+                color: #f79320;
+            }
+        }
+        .btn-book-ticket {
+            position:absolute;
+            bottom:0;
+            z-index: 2;
+
+        }
+    }
+
+   
+    @include respond-to("large") {
+        .checkout__form {
+            .voucher {
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                input {
+                    width: 100%;
+                }
+
+                .btn-apply {
+                    margin: spacing(1,0);
+                }
+            }
+        }
+    }
+
+    @include respond-to("medium") {
+        position: relative !important;
+        margin-top: spacing(5);
+        box-shadow: none;
+        .container {
+            max-width: 540px;
+            padding: spacing(0);
+        }
+        
+        .checkout__form {
+            .payment {
+                margin-bottom: 15% ;
+                .form-check-inline {
+                    padding: spacing(1, 0);
+                }
+            }
+            .notice{
+                position: relative;
+                bottom:0;
+            }
+             .btn-book-ticket{
+                position: relative;
+                 
+             }
+        }
+    }
+}
