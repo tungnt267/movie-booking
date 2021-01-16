@@ -1,4 +1,5 @@
-import MovieService from "../../services/movie.service";
+import axios from "axios";
+// import MovieService from "../../services/movie.service";
 import {
   GET_MOVIE_LIST_FAILED,
   GET_MOVIE_LIST_SUCCESS,
@@ -11,15 +12,17 @@ export const getMovieListRequest = () => {
     dispatch(startLoading());
 
     // Call API
-    MovieService.getMovieListApi()
+    // MovieService.getMovieListApi()
+    axios({
+      method: "GET",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`,
+    })
       .then((res) => {
-        console.log(res);
         dispatch(getMovieListSuccess(res.data));
         // Stop Loading
         dispatch(stopLoading());
       })
       .catch((err) => {
-        console.log(err);
         dispatch(getMovieListFailed(err));
         // Stop Loading
         dispatch(stopLoading());

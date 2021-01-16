@@ -36,8 +36,26 @@
         }
 
         .tab-content {
+            .slick-arrow{
+                top: 48%;
+                z-index: 1;
+                &::before {
+                  font-size:50px;
+                  color: getBg('black');
+                }
+              }
+    
+              .slick-prev {
+                left: -60px;            
+              }
+    
+              .slick-next {
+                right: -30px;            
+              }
+              
             .film-block__item {
-                padding-top: spacing(2);
+                padding: spacing(2, 0.8);
+                padding-bottom: 0;
 
                 .card {
                     padding-bottom: 0;
@@ -77,47 +95,7 @@
                             }
                         }
                     }
-
-                    .thumb-1 {
-                        background: url('../../assets/images/filmBlock/vi-sao-dua-ban-toi.png') no-repeat center center;
-                    }
-
-                    .thumb-2 {
-                        background: url('../../assets/images/filmBlock/ac-quy-doi-dau.png') no-repeat center center;
-                    }
-
-                    .thumb-3 {
-                        background: url('../../assets/images/filmBlock/ba-toi-la-cong-chua.png') no-repeat center center;
-                    }
-
-                    .thumb-4 {
-                        background: url('../../assets/images/filmBlock/di-nhan-the-he-moi.jpg') no-repeat center center;
-                    }
-
-                    .thumb-5 {
-                        background: url('../../assets/images/filmBlock/ke-cap-nhan-dang.png') no-repeat center center;
-                    }
-
-                    .thumb-6 {
-                        background: url('../../assets/images/filmBlock/tenet.jpg') no-repeat center center;
-                    }
-
-                    .thumb-7 {
-                        background: url('../../assets/images/filmBlock/tro-choi-cua-quy.png') no-repeat center center;
-                    }
-
-                    .thumb-8 {
-                        background: url('../../assets/images/filmBlock/vi-sao-dua-ban-toi.png') no-repeat center center;
-                    }
-
-                    .thumb-9 {
-                        background: url('../../assets/images/filmBlock/vi-sao-dua-ban-toi.png') no-repeat center center;
-                    }
-
-                    .thumb-10 {
-                        background: url('../../assets/images/filmBlock/gia-dinh-chan-to-phieu-luu-ky.png') no-repeat center center;
-                    }
-
+                    
                     .film__thumbnail {
                         position: relative;
                         border-radius: 4px;
@@ -133,6 +111,7 @@
 
                     .card-body {
                         padding: 0;
+                        height: 50px;
 
                         .film__name {
                             margin: 0;
@@ -206,20 +185,21 @@
         padding-bottom: 0;
 
         .btn-buy-now {
-            bottom: 12% !important;
+            top: 300px;
         }
     }
 
     @include respond-to('large') {
         .btn-buy-now {
-            bottom: 8% !important;
+            top: 88%;
         }
-    }
+        .slick-prev {
+            left: -45px !important;            
+          }
 
-    @include respond-to('medium') {
-        .btn-buy-now {
-            bottom: 7% !important;
-        }
+          .slick-next {
+            right: -10px !important;            
+          }
     }
 
     @include respond-to('small') {
@@ -247,7 +227,7 @@
         }
 
         .btn-buy-now {
-            bottom: 6% !important;
+            top: 90%;
         }
     }
 
@@ -271,13 +251,13 @@
         padding-bottom: 0 !important;
 
         .btn-buy-now {
-            bottom: 6% !important;
+            top: 88%;
         }
     }
 
-    @media screen and (max-width : 316px) {
+    @media screen and (max-width : 320px) {
         .btn-buy-now {
-            bottom: 13% !important;
+            top: 84%;
         }
     }
 }

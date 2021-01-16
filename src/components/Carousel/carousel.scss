@@ -15,34 +15,46 @@
       .carousel {
         background: linear-gradient(to top, #000, transparent 20%);
   
-        &:hover {
-          .btn-trailer {
-            visibility: visible;
-          }
-        }
-  
-        &-indicators {
-          position: absolute;
-          bottom: 10%;
-          z-index: 5;
-  
-          li {
-            width: 12px;
-            height: 12px;
-            opacity: 1;
-            border-radius: 50%;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
-  
-            &.active {
-              background-color: getBg("primary");
+        &-inner {
+          .slick-arrow{
+            z-index: 1;
+            &::before {
+              font-size:50px;
             }
           }
-        }
-  
-        &-inner {
+
+          .slick-prev {
+            left: 15px;            
+          }
+
+          .slick-next {
+            right: 45px;            
+          }
+
+          .slick-dots {
+            position: absolute;
+            bottom: 10%;
+            z-index: 5;
+            
+            li {
+              width: 12px;
+              height: 12px;
+              opacity: 1;
+              border-radius: 50%;
+              -webkit-border-radius: 50%;
+              -moz-border-radius: 50%;
+              -ms-border-radius: 50%;
+              -o-border-radius: 50%;
+              background-color: getBg("white");
+              button::before {
+                opacity: 0;
+              }
+            }
+          }
+          .slick-active {
+            background-color: getBg("primary") !important;
+          }
+
           .carousel-item {
             a {
               img {
@@ -50,13 +62,13 @@
                 height: 100%;
               }
             }
+            &:hover {
+              .btn-trailer {
+                visibility: visible;
+              }
+            }
           }
         }
-      }
-  
-      .slider {
-        width: 650px;
-        margin: 0 auto;
       }
   
       img {

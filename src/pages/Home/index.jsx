@@ -2,9 +2,9 @@ import React from "react";
 // import Ads from "../../components/Ads";
 import Carousel from "../../components/Carousel";
 import FilmBlock from "../../components/FilmBlock";
-// import Footer from "../../components/Footer";
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-// import MovieTime from "../../components/MovieTime";
+import MovieTime from "../../components/MovieTime";
 
 const Home = () => {
   return (
@@ -12,9 +12,13 @@ const Home = () => {
       <Header />
       <Carousel />
       <FilmBlock />
-      {/* <MovieTime /> */}
+      <MovieTime />
       {/* <Ads /> */}
+<<<<<<< HEAD
       {/* <Footer /> */}
+=======
+      <Footer />
+>>>>>>> 1633680bea072e545bd8f59d94fc1f697e29fa42
     </div>
   );
 };
