@@ -1,0 +1,280 @@
+@import '../../styles/styles.scss';
+
+.movie-time {
+  max-width: 940px;
+  margin: auto;
+  padding-bottom: spacing(4);
+
+  &__bg {
+    padding-top: spacing(12);
+    background: url(../../assets/images/movieTime/back-news.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .movie-time__content {
+    border: 1px solid getBg("border_movie_time");
+    border-right: none;
+    display: grid;
+    grid-template-columns: 1fr 3fr 6fr;
+
+    .movie-time__item {
+      border-right: 1px solid getBg("border_movie_time");
+    }
+
+    .cinema-item {
+      .cinema-link {
+        display: block;
+        text-decoration: none;
+        opacity: 0.5;
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -ms-transition: all 0.2s;
+        -o-transition: all 0.2s;
+
+        .nav-img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      .cinema-link.active,
+      .cinema-link:hover {
+        background-color: transparent;
+        opacity: 1;
+      }
+    }
+
+    .cinema-logo {
+      width: 92px;
+
+      .cinema-link {
+        padding: spacing(2);
+      }
+
+      .cinema-item::after {
+        content: "";
+        width: 60%;
+        height: 1px;
+        background-color: getBg("border_movie_time");
+        display: block;
+        margin: auto;
+      }
+    }
+
+    .cinema-address {
+      .cinema-item {
+        .cinema-link {
+          .address__content {
+            padding: 20px 15px 15px 20px;
+            display: flex;
+            align-items: center;
+
+            .address-logo {
+              padding-right: spacing(1);
+            }
+
+            .address-text {
+              &__name {
+                line-height: 19px;
+                display: block;
+                @include text(getColor("black"),
+                  getFz("body2"),
+                  getFw("regular"));
+
+                .name__header {
+                  color: getColor("address_text_name");
+                }
+              }
+
+              &__direction {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: 180px;
+                display: block;
+                @include text(getColor("grey_1"),
+                  getFz("subtitle2"),
+                  getFw("regular"));
+              }
+
+              &__detail {
+                display: block;
+                @include text(getColor("primary"),
+                  getFz("subtitle2"),
+                  getFw("regular"));
+              }
+            }
+          }
+        }
+
+        &::after {
+          content: "";
+          width: 90%;
+          height: 1px;
+          background-color: getBg("border_movie_time");
+          display: block;
+          margin: auto;
+        }
+      }
+    }
+
+    .cinema-time {
+      max-height: 800px;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 5px !important;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: getBg("grey_1");
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+      }
+
+      .time-list {
+        &::after {
+          content: "";
+          width: 94%;
+          height: 1px;
+          background-color: getBg("border_movie_time");
+          display: block;
+          margin: auto;
+        }
+
+        .time-link {
+          text-decoration: none;
+
+          .time__content {
+            display: flex;
+
+            .time-logo {
+              padding: spacing(2);
+
+              .nav-img {
+                padding: 0;
+                width: 50px;
+                height: 50px;
+              }
+            }
+
+            .time-text {
+              padding-top: spacing(2);
+
+              &__name {
+                display: block;
+                @include text(getColor("black"),
+                  getFz("body2"),
+                  getFw("regular"));
+
+                .name__header {
+                  @include text(getColor("white"),
+                    getFz("subtitle2"),
+                    getFw("regular"));
+                  background-color: #fa4226;
+                  padding: spacing(0, 0.5);
+                  text-align: center;
+                  display: inline-block;
+                  border-radius: 4px;
+                  -webkit-border-radius: 4px;
+                  -moz-border-radius: 4px;
+                  -ms-border-radius: 4px;
+                  -o-border-radius: 4px;
+                }
+              }
+
+              &__detail {
+                display: block;
+                @include text(getColor("grey_2"),
+                  getFz("subtitle2"),
+                  getFw("regular"));
+              }
+            }
+          }
+        }
+
+        .multi-collapse {
+          padding-left: spacing(1.5);
+
+          &:hover {
+            background-color: transparent;
+          }
+
+          .time__content__version {
+            margin-bottom: spacing(0.5);
+
+            span {
+              @include text(getColor("black"),
+                getFz("body1"),
+                getFw("regular"));
+            }
+          }
+
+          .time__content__hour {
+            .hour-link {
+              cursor: pointer;
+              display: block;
+              @include text(getColor("grey_2"),
+                getFz("body2"),
+                getFw("regular"));
+              margin-right: spacing(1);
+              margin-bottom: spacing(1);
+              padding: spacing(0.5);
+              text-align: center;
+              background-color: rgba(246, 246, 246, 0.5);
+              border: 1px solid getBg("border_hour_link");
+              border-radius: 7px;
+              -webkit-border-radius: 7px;
+              -moz-border-radius: 7px;
+              -ms-border-radius: 7px;
+              -o-border-radius: 7px;
+              transition: all 0.2s;
+              -webkit-transition: all 0.2s;
+              -moz-transition: all 0.2s;
+              -ms-transition: all 0.2s;
+              -o-transition: all 0.2s;
+
+              &__header {
+                @include text(getColor("hour_link_header"),
+                  getFz("body1") + 2,
+                  getFw("regular"));
+              }
+
+              &:hover {
+                .hour-link__header {
+                  color: getColor("primary");
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to('medium') {
+    .movie-time__content {
+      border: none;
+      display: block;
+
+      .movie-time__item {
+        margin-bottom: spacing(5);
+      }
+
+      .cinema-logo,
+      .cinema-address,
+      .cinema-time {
+        border: none;
+      }
+    }
+  }
+
+  @include respond-to('x-small') {
+    display: none;
+  }
+}
