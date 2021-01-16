@@ -7,12 +7,33 @@ import "./carousel.scss";
 
 const Carousel = () => {
   const carouselList = [
-    { id: 1, img: "../images/carousel/diep-vien-sieu-lay.jpg" },
-    { id: 2, img: "../images/carousel/ca-sau-tu-than.png" },
-    { id: 3, img: "../images/carousel/ke-cuong-sat.jpg" },
-    { id: 4, img: "../images/carousel/mai-ben-em.png" },
-    { id: 5, img: "../images/carousel/noi-chien-sieu-anh-hung.jpg" },
+    {
+      id: 1,
+      img: "../images/carousel/diep-vien-sieu-lay.jpg",
+      trailer: "https://www.youtube.com/embed/5IMIdd3iq6A",
+    },
+    {
+      id: 2,
+      img: "../images/carousel/ca-sau-tu-than.png",
+      trailer: "https://www.youtube.com/embed/JKNv2YfrM7Y",
+    },
+    {
+      id: 3,
+      img: "../images/carousel/ke-cuong-sat.jpg",
+      trailer: "https://www.youtube.com/embed/m8y4zigvplE",
+    },
+    {
+      id: 4,
+      img: "../images/carousel/mai-ben-em.png",
+      trailer: "https://www.youtube.com/embed/dsOSmQl2yA8",
+    },
+    {
+      id: 5,
+      img: "../images/carousel/noi-chien-sieu-anh-hung.jpg",
+      trailer: "https://www.youtube.com/embed/CtmcwhzzjXQ",
+    },
   ];
+
   const settings = {
     dots: true,
     slidesToShow: 1,
@@ -49,7 +70,7 @@ const Carousel = () => {
         <div className="carousel-inner">
           <Slider {...settings}>{renderCarousel()}</Slider>
         </div>
-        <VideoModal />
+        <VideoModal list={carouselList} />
         <BuyTicket />
       </div>
     </div>

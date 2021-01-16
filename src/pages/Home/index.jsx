@@ -4,7 +4,7 @@ import Carousel from "../../components/Carousel";
 import FilmBlock from "../../components/FilmBlock";
 // import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-// import MovieTime from "../../components/MovieTime";
+import MovieTime from "../../components/MovieTime";
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
       <Header />
       <Carousel />
       <FilmBlock />
-      {/* <MovieTime /> */}
+      <MovieTime />
       {/* <Ads /> */}
       {/* <Footer /> */}
     </div>

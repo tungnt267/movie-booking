@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { getMovieListRequest } from "../../redux/actions/movie.action";
+import VideoModal from "../VideoModal";
 import "./filmBlock.scss";
 
 const FilmBlock = () => {
@@ -43,6 +44,7 @@ const FilmBlock = () => {
 
   const { movieList } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getMovieListRequest());
     return () => {};
@@ -82,7 +84,12 @@ const FilmBlock = () => {
                 }}
               >
                 <div className="film__overlay">
-                  <button className="btn-trailer">
+                  <button
+                    className="btn-trailer"
+                    href="#"
+                    data-toggle="modal"
+                    data-target={`#carouselModal${movie.maPhim}`}
+                  >
                     <img
                       src="../images/carousel/play-video.png"
                       alt="play-video"
@@ -185,6 +192,7 @@ const FilmBlock = () => {
             <div className="tab-pane container fade" id="comingSoon">
               <Slider {...settings}>{renderComingSoon()}</Slider>
             </div>
+            {/* <VideoModal list={movieList} /> */}
           </div>
         </div>
       </div>
