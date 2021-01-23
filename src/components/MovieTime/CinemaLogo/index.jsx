@@ -1,7 +1,4 @@
 import React from "react";
-// import { useDispatch } from "react-redux";
-// import { getCinemaGroupRequest } from "../../../redux/actions/cinema.action";
-// import { Link } from "react-router-dom";
 
 const CinemaLogo = (props) => {
   // const dispatch = useDispatch();
@@ -16,7 +13,6 @@ const CinemaLogo = (props) => {
             aria-selected="true"
             onClick={() => {
               props.setIdCinema(cinema.maHeThongRap);
-              // dispatch(getCinemaGroupRequest(props.cinemaGrId));
             }}
           >
             <img

@@ -28,14 +28,22 @@ const Footer = () => {
             <div className="col-lg-4 d-none d-lg-block">
               <p className="footer__contact__title">ĐỐI TÁC</p>
               <div className="row col-sm-12 col-xs-12 line-partner">
-                <NavLink target="_blank" to="https://www.cgv.vn/" title="CGV">
+                <NavLink
+                  target="_blank"
+                  to={{ pathname: "https://www.cgv.vn/" }}
+                  title="CGV"
+                >
                   <img
                     className="partner-img"
                     src="../images/footer/cgv.png"
                     alt="partner1"
                   />
                 </NavLink>
-                <NavLink target="_blank" to="http://bhdstar.vn" title="BHD">
+                <NavLink
+                  target="_blank"
+                  to={{ pathname: "http://bhdstar.vn" }}
+                  title="BHD"
+                >
                   <img
                     className="partner-img"
                     src="../images/footer/bhd.png"
@@ -44,7 +52,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="http://galaxycine.vn"
+                  to={{ pathname: "http://galaxycine.vn" }}
                   title="Galaxy"
                 >
                   <img
@@ -55,7 +63,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="http://cinestar.com.vn"
+                  to={{ pathname: "http://cinestar.com.vn" }}
                   title="Cinestar"
                 >
                   <img
@@ -66,7 +74,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="http://lottecinemavn.com"
+                  to={{ pathname: "http://lottecinemavn.com" }}
                   title="Lotte Cinema"
                 >
                   <img
@@ -80,7 +88,7 @@ const Footer = () => {
               <div className="row col-sm-12 col-xs-12 line-partner">
                 <NavLink
                   target="_blank"
-                  to="https://www.megagscinemas.vn"
+                  to={{ pathname: "https://www.megagscinemas.vn" }}
                   title="MegaGS"
                 >
                   <img
@@ -91,7 +99,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="https://www.betacineplex.vn/"
+                  to={{ pathname: "https://www.betacineplex.vn/" }}
                   title="Beta"
                 >
                   <img
@@ -100,7 +108,11 @@ const Footer = () => {
                     alt="partner1"
                   />
                 </NavLink>
-                <NavLink target="_blank" to="http://ddcinema.vn" title="DDC">
+                <NavLink
+                  target="_blank"
+                  to={{ pathname: "http://ddcinema.vn" }}
+                  title="DDC"
+                >
                   <img
                     className="partner-img"
                     src="../images/footer/dongdacinema.png"
@@ -109,7 +121,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="https://touchcinema.com/"
+                  to={{ pathname: "https://touchcinema.com/" }}
                   title="Touch Cinema"
                 >
                   <img
@@ -120,7 +132,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="https://cinemaxvn.com/"
+                  to={{ pathname: "https://cinemaxvn.com/" }}
                   title="Cinemax"
                 >
                   <img
@@ -133,7 +145,7 @@ const Footer = () => {
               <div className="row col-sm-12 col-xs-12 line-partner">
                 <NavLink
                   target="_blank"
-                  to="http://starlight.vn/"
+                  to={{ pathname: "http://starlight.vn/" }}
                   title="Starlight"
                 >
                   <img
@@ -144,7 +156,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="https://www.dcine.vn/"
+                  to={{ pathname: "https://www.dcine.vn/" }}
                   title="Dcine"
                 >
                   <img
@@ -155,7 +167,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="https://zalopay.vn/"
+                  to={{ pathname: "https://zalopay.vn/" }}
                   title="ZaloPay"
                 >
                   <img
@@ -166,7 +178,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="https://www.payoo.vn/"
+                  to={{ pathname: "https://www.payoo.vn/" }}
                   title="Payoo"
                 >
                   <img
@@ -177,7 +189,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="https://www.vietcombank.com.vn/"
+                  to={{ pathname: "https://www.vietcombank.com.vn/" }}
                   title="Vietcombank"
                 >
                   <img
@@ -190,7 +202,7 @@ const Footer = () => {
               <div className="row col-sm-12 col-xs-12 line-partner">
                 <NavLink
                   target="_blank"
-                  to="http://www.agribank.com.vn/"
+                  to={{ pathname: "http://www.agribank.com.vn/" }}
                   title="Agribank"
                 >
                   <img
@@ -201,7 +213,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="https://www.vietinbank.vn/"
+                  to={{ pathname: "https://www.vietinbank.vn/" }}
                   title="Vietinbank"
                 >
                   <img
@@ -212,7 +224,7 @@ const Footer = () => {
                 </NavLink>
                 <NavLink
                   target="_blank"
-                  to="https://www.indovinabank.com.vn/"
+                  to={{ pathname: "https://www.indovinabank.com.vn/" }}
                   title="IVB"
                 >
                   <img
@@ -221,14 +233,22 @@ const Footer = () => {
                     alt="partner1"
                   />
                 </NavLink>
-                <NavLink target="_blank" to="http://123go.vn" title="123Go">
+                <NavLink
+                  target="_blank"
+                  to={{ pathname: "http://123go.vn" }}
+                  title="123Go"
+                >
                   <img
                     className="partner-img"
                     src="../images/footer/123go.png"
                     alt="partner1"
                   />
                 </NavLink>
-                <NavLink target="_blank" to="http://laban.vn" title="La Bàn">
+                <NavLink
+                  target="_blank"
+                  to={{ pathname: "http://laban.vn" }}
+                  title="La Bàn"
+                >
                   <img
                     className="partner-img"
                     src="../images/footer/laban.png"
