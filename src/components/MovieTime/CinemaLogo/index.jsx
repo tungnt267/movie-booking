@@ -1,34 +1,30 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { getCinemaListRequest } from "../../../redux/actions/cinema.action";
+import React from "react";
+// import { useDispatch } from "react-redux";
+// import { getCinemaGroupRequest } from "../../../redux/actions/cinema.action";
+// import { Link } from "react-router-dom";
 
 const CinemaLogo = (props) => {
-  const { cinemaList } = useSelector((state) => state.cinema);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getCinemaListRequest());
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  // const dispatch = useDispatch();
   const renderCinemaList = () => {
-    return cinemaList?.map((cinema, index) => {
+    return props.cinemaList?.map((cinema, index) => {
       return (
         <li key={index} className="cinema-item">
-          <Link
+          <a
             className="cinema-link"
             data-toggle="tab"
-            to="/"
+            href={`#${props.cinemaId}`}
             aria-selected="true"
+            onClick={() => {
+              props.setIdCinema(cinema.maHeThongRap);
+              // dispatch(getCinemaGroupRequest(props.cinemaGrId));
+            }}
           >
             <img
               className="nav-img"
               src={cinema.logo}
               alt={cinema.maHeThongRap}
             />
-          </Link>
+          </a>
         </li>
       );
     });

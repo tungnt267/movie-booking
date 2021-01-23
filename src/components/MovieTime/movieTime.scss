@@ -20,6 +20,12 @@
 
     .movie-time__item {
       border-right: 1px solid getBg("border_movie_time");
+      .tab-pane {
+        display: none;
+      }
+      .tab-pane.active {
+        display: block;
+      }
     }
 
     .cinema-item {

@@ -10,11 +10,11 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Carousel />
-      <FilmBlock />
+      {/* <Carousel /> */}
+      {/* <FilmBlock /> */}
       <MovieTime />
       {/* <Ads /> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { getMovieListRequest } from "../../redux/actions/movie.action";
-import VideoModal from "../VideoModal";
+// import VideoModal from "../VideoModal";
 import "./filmBlock.scss";
 
 const FilmBlock = () => {
@@ -12,7 +12,7 @@ const FilmBlock = () => {
     slidesToShow: 4,
     slidesToScroll: 4,
     arrows: true,
-    infinite: false,
+    infinite: true,
     rows: 2,
     responsive: [
       {

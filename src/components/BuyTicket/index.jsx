@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./buyTicket.scss";
 
-const BuyTicket = (props) => {
+const BuyTicket = () => {
   let [state, setState] = useState({
     movieList: [],
   });

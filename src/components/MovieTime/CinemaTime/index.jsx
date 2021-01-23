@@ -1,20 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
-import { getShowTimeRequest } from "../../../redux/actions/cinema.action";
 
-const CinemaTime = () => {
-  const { showTime } = useSelector((state) => state.cinema);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getShowTimeRequest());
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+const CinemaTime = (props) => {
   const renderShowTime = () => {
-    return showTime?.map((showTime, index) => {
+    return props.showTime?.map((item, index) => {
+      // console.log(item.lstCumRap.lstLichChieuTheoPhim);
       return (
         <div key={index} className="time-list">
           <Link className="time-link" data-toggle="collapse" to="#bhdBitexco_1">
@@ -22,8 +12,8 @@ const CinemaTime = () => {
               <div className="time-logo">
                 <img
                   className="nav-img time-logo"
-                  src={showTime.lstCumRap.danhSachPhim}
-                  alt={showTime.lstCumRap.danhSachPhim}
+                  src={item.logo}
+                  alt={item.logo}
                 />
               </div>
               <div className="time-text">
