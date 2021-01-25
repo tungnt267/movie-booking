@@ -1,7 +1,6 @@
 import React from "react";
 
 const CinemaLogo = (props) => {
-  // const dispatch = useDispatch();
   const renderCinemaList = () => {
     return props.cinemaList?.map((cinema, index) => {
       return (

@@ -8,14 +8,10 @@ const CinemaAddressItem = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(getCinemaGroupRequest(props.cinemaGrId));
-    dispatch(getCinemaGroupRequest(props.cinemaGrId));
+    dispatch(getCinemaGroupRequest(props.cinemaId));
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // console.log(props.cinemaGrId);
-  console.log(cinemaGroup);
 
   const renderGrList = () => {
     return cinemaGroup?.map((item, index) => {
@@ -32,7 +28,7 @@ const CinemaAddressItem = (props) => {
                 <img
                   className="nav-img"
                   src="../images/movieTime/bhd-star-bitexco.jpg"
-                  alt={props.cinemaGrId}
+                  alt={props.cinemaId}
                 />
               </div>
               <div className="address-text">

@@ -1,4 +1,6 @@
+// import { CircularProgress } from "@material-ui/core";
 import React from "react";
+import { useSelector } from "react-redux";
 // import Ads from "../../components/Ads";
 import Carousel from "../../components/Carousel";
 import FilmBlock from "../../components/FilmBlock";
@@ -7,16 +9,21 @@ import Header from "../../components/Header";
 import MovieTime from "../../components/MovieTime";
 
 const Home = () => {
+  // let { isLoading } = useSelector((state) => state.loading);
+  // if (isLoading) {
+  //   return <CircularProgress />;
+  // } else {
   return (
     <div>
       <Header />
-      {/* <Carousel /> */}
+      <Carousel />
       {/* <FilmBlock /> */}
-      <MovieTime />
+      {/* <MovieTime /> */}
       {/* <Ads /> */}
       {/* <Footer /> */}
     </div>
   );
+  // }
 };
 
 export default Home;

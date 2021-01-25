@@ -6,7 +6,7 @@ const CinemaAddress = (props) => {
     return props.cinemaList?.map((cinema, index) => {
       return (
         <div key={index} className="tab-pane show" id={cinema.maHeThongRap}>
-          <CinemaAddressItem cinemaGrId={props.cinemaId} />
+          <CinemaAddressItem cinemaId={props.cinemaId} />
         </div>
       );
     });
