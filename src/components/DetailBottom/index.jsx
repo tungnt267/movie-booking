@@ -1,4 +1,5 @@
 import React from "react";
+import MovieTime from "../MovieTime";
 import "./detailBottom.scss";
 
 const DetailBottom = () => {
@@ -7,7 +8,7 @@ const DetailBottom = () => {
       <div className="detail-bottom__info container">
         <div className="info__tab">
           {/* Nav tabs */}
-          <ul className="nav nav-tabs">
+          <ul className="nav nav-tabs" style={{ paddingBottom: "55px" }}>
             <li className="nav-item">
               <a className="nav-link active" data-toggle="tab" href="#showTime">
                 Lịch chiếu
@@ -28,9 +29,17 @@ const DetailBottom = () => {
           <div className="tab-content" id="nav-tabContent">
             <div
               className="tab-pane fade show active"
-              id="info"
+              id="showTime"
               role="tabpanel"
               aria-labelledby="nav-home-tab"
+            >
+              <MovieTime />
+            </div>
+            <div
+              className="tab-pane fade "
+              id="info"
+              role="tabpanel"
+              aria-labelledby="nav-info-tab"
             >
               <div className="row">
                 <div className="col-md-6">
@@ -97,6 +106,7 @@ const DetailBottom = () => {
                     <img
                       className="user-avatar"
                       src="../images/detail/avatar-user.jpg"
+                      alt="avatar-user"
                     />
                   </span>
                   <input
@@ -106,11 +116,11 @@ const DetailBottom = () => {
                     readOnly="readonly"
                   />
                   <span className="img-reviewer-star">
-                    <img src="../images/detail/star1.png" />
-                    <img src="../images/detail/star1.png" />
-                    <img src="../images/detail/star1.png" />
-                    <img src="../images/detail/star1.png" />
-                    <img src="../images/detail/star1.png" />
+                    <img src="../images/detail/star1.png" alt="star1" />
+                    <img src="../images/detail/star1.png" alt="star1" />
+                    <img src="../images/detail/star1.png" alt="star1" />
+                    <img src="../images/detail/star1.png" alt="star1" />
+                    <img src="../images/detail/star1.png" alt="star1" />
                   </span>
                 </div>
               </div>

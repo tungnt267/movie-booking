@@ -1,0 +1,222 @@
+@import '../../styles/styles.scss';
+.news {
+    max-width: 940px;
+    margin: auto;
+
+    .nav-tabs {
+        background: url(../../assets/images/news/back-news.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        padding-top: spacing(12);
+        margin-bottom: 0;
+
+
+        .nav-item {
+            transition: all 1.5s;
+    -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    -ms-transition: all 1.5s;
+    -o-transition: all 1.5s;
+
+            .nav-link {
+                background-color: transparent;
+                transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+            }
+        }
+    }
+
+    .tab-content {
+        padding-top: spacing(3);
+
+        .tab-cinema {
+            .row-top {
+                margin-bottom: spacing(2.5);
+            }
+
+            .row {
+                .card {
+                    border: none;
+                    padding: spacing(0, 0.75);
+
+                    .card-img-top {
+                        max-height: 250px;
+                        border: 1px solid getBg("grey_1");
+                        border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        -moz-border-radius: 4px;
+                        -ms-border-radius: 4px;
+                        -o-border-radius: 4px;
+                    }
+
+                    .card-body {
+                        padding: 0;
+
+                        .card-title {
+                            margin: spacing(1, 0);
+                            font-family: "SF Medium";
+
+                            &__link {
+                                @include text(getColor("black"), getFz("body1"), getFw("medium"));
+                                text-decoration: none;
+                                transition: all 0.2s;
+                                -webkit-transition: all 0.2s;
+                                -moz-transition: all 0.2s;
+                                -ms-transition: all 0.2s;
+                                -o-transition: all 0.2s;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+
+                                &:hover {
+                                    color: getColor("primary");
+                                }
+                            }
+
+                        }
+
+                        .card-text {
+                            text-align: justify;
+                            @include text(getColor("black_1"), getFz("subtitle1"), getFw("regular"));
+                            font-family: "SF Regular";
+                            padding-right: spacing(0.5);
+                            display: -webkit-box;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            margin-bottom: spacing(1);
+                            word-spacing: 1px;
+                        }
+                    }
+
+                    .card-footer {
+                        padding: 0;
+                        background: none;
+                        border: none;
+                        display: flex;
+
+                        .btn-like,
+                        .btn-comment {
+                            border: none;
+                            background-color: transparent;
+                            @include text(getColor("black_1"), getFz("body2"), getFw("regular"));
+
+                            img {
+                                width: 18px;
+                                height: 18px;
+                                margin-right: spacing(0.2);
+                            }
+                        }
+
+                        .btn-like {
+                            margin-right: spacing(2.5);
+
+                            .sp-like {
+                                display: inline-block;
+                                margin-top: spacing(0.2);
+                                margin-left: spacing(0.3);
+                            }
+                        }
+
+                        .btn-comment {
+                            margin-top: spacing(0.2);
+                            .sp-comment{
+                                display: inline-block;
+                                margin-top: spacing(0.2);
+                                margin-left: spacing(0.3);
+
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            .row-bottom {
+                .row-small {
+                    padding-left: spacing(0.75);
+                    display: flex;
+
+                    .col-logo {
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 4px;
+                            -webkit-border-radius: 4px;
+                            -moz-border-radius: 4px;
+                            -ms-border-radius: 4px;
+                            -o-border-radius: 4px;
+                        }
+                    }
+
+                    .col-content {
+                        padding-left: spacing(1);
+
+                        &__link {
+                            @include text(getColor("black_1"), getFz("body1"), getFw("regular"));
+                            text-decoration: none;
+                            transition: all 0.2s;
+                            -webkit-transition: all 0.2s;
+                            -moz-transition: all 0.2s;
+                            -ms-transition: all 0.2s;
+                            -o-transition: all 0.2s;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+
+                            &:hover {
+                                color: getColor("primary");
+                            }
+                        }
+                    }
+                }
+
+                .card {
+                    .card-img-top {
+                        max-height: 150px;
+                    }
+                }
+            }
+        }
+    }
+    .view-more{
+       text-align: center;
+    }
+
+    @include respond-to('medium') {
+        padding: spacing(0, 2);
+    }
+
+    @include respond-to('small') {
+        .nav-tabs {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .nav-item {
+                margin-bottom: spacing(1);
+            }
+        }
+
+        .row-top {
+            margin-bottom: 0 !important;
+        }
+
+        .card {
+            margin-bottom: spacing(3);
+        }
+
+        .card-img-top {
+            max-height: 250px !important;
+        }
+    }
+}

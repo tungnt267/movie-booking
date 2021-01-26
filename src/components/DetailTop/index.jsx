@@ -1,16 +1,39 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./detailTop.scss";
 
-const DetailTop = () => {
+const DetailTop = (props) => {
+  let [state, setState] = useState({
+    movieList: null,
+  });
+
+  useEffect(() => {
+    getMovieList();
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getMovieList = () => {
+    axios
+      .get(
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=1314"
+      )
+      .then((res) => {
+        setState({
+          ...state,
+          movieList: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="detail-top">
-      {/* DETAIL TOP */}
-
       <div className="detail-bg d-none d-md-block" />
       <div className="cinema-img-md d-md-none">
         <img
           className="w-100"
-          src="../images/detail/sac-dep-doi-tra-false-beauty-c16.jpg"
+          // src="../images/detail/sac-dep-doi-tra-false-beauty-c16.jpg"
+          src={state.movieList.hinhAnh}
           alt="false-beauty-c16"
         />
         <button className="btn-trailer">

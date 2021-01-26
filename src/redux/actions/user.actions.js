@@ -1,37 +1,14 @@
-import Axios from "axios";
-import { startLoading, stopLoading } from "./common.actions";
+import { userService } from "../../services/index";
 
-export function loginRequest(user, history) {
+export const login = (user) => {
   return (dispatch) => {
-    dispatch(startLoading);
-    // call api
-    // Axios({
-    //   method: "POST",
-    //   url: 'duong dan api',
-    //   data: {}
-    // });
-
-    Axios.post(
-      "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
-      user
-    )
-      .then(function (res) {
-        // console.log(res);
-
-        // lưu xuống localStorage
-        localStorage.setItem("user", JSON.stringify(res.data));
-
-        // chuyển về trang trước đó,
-        // history.goBack();
-
-        // chuyen ve home
-        history.push("/home");
-        dispatch(stopLoading);
+    userService
+      .signIn(user)
+      .then((res) => {
+        console.log(res);
       })
-      .catch(function (err) {
-        // console.log(err);
-        // thông báo lỗi cho người dùng
-        dispatch(stopLoading);
+      .catch((err) => {
+        console.log(err);
       });
   };
-}
+};

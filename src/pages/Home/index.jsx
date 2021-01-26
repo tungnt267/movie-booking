@@ -1,24 +1,22 @@
 import React from "react";
-// import Ads from "../../components/Ads";
+import Ads from "../../components/Ads";
 import Carousel from "../../components/Carousel";
 import FilmBlock from "../../components/FilmBlock";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import MovieTime from "../../components/MovieTime";
+import News from "../../components/News";
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <Carousel />
+      {/* <Carousel /> */}
       <FilmBlock />
-      <MovieTime />
+      {/* <MovieTime /> */}
+      {/* <News /> */}
       {/* <Ads /> */}
-<<<<<<< HEAD
-      {/* <Footer /> */}
-=======
       <Footer />
->>>>>>> 1633680bea072e545bd8f59d94fc1f697e29fa42
     </div>
   );
 };

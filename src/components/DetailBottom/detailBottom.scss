@@ -127,6 +127,14 @@
             }
         }
     }
+    .movie-time__bg{
+        display: none;
+    }
+    .movie-time {
+        .movie-time__content{
+            background-color: getBg("white");
+        }
+    }
 
     @include respond-to("small") {
         .info-detail {
