@@ -30,26 +30,6 @@
         position: relative;
         height: 100%;
 
-        .film-link {
-            display: block;
-            @include text(getColor("black_2"), getFz("body2"), getFw("regular"));
-            padding: spacing(0.3, 2);
-            line-height: 1.5;
-            white-space: nowrap;
-            cursor: pointer;
-            transition: all 0.2s;
-            -webkit-transition: all 0.2s;
-            -moz-transition: all 0.2s;
-            -ms-transition: all 0.2s;
-            -o-transition: all 0.2s;
-            text-decoration: none;
-
-            &:hover {
-                background-color: getBg("hell_blue");
-                color: getColor("white");
-            }
-        }
-
         .select-menu {
             position: absolute;
             top: 50%;
@@ -60,7 +40,6 @@
             cursor: pointer;
             width: 100%;
             padding: 7%;
-            background-image: url('../../assets/images/dropdown-icon.png');
             background-repeat: no-repeat;
             background-position: calc(100% - 8px);
             overflow: hidden;
@@ -74,6 +53,10 @@
 
             &::after {
                 display: none;
+            }
+
+            &:focus {
+                outline: none;
             }
         }
 
@@ -104,11 +87,14 @@
         }
     }
 
-    .buy-ticket__cinema,
+    .buy-ticket__cinema {
+        width: 20%;
+    }
+
     .buy-ticket__date,
     .buy-ticket__show,
     .buy-ticket__buy {
-        width: calc(70% / 4);
+        width: calc(50% / 3);
     }
 }
 

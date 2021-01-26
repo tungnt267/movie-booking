@@ -37,11 +37,16 @@
 }
 
 .btn-buy-ticket {
-  background-color: getBg("black_1");
-  @include text(getColor("white"), getFz("body2"), getFw("regular"));
+  background-color: getBg("primary") !important;
+  @include text(getColor("white") !important, getFz("body2"), getFw("regular"));
 
   &:hover {
     color: getColor("white");
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  background-color: getBg("black_1") !important;
   }
 }
 
