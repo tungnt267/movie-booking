@@ -14,10 +14,9 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Image from "../../assets/images/login/web-logo.png";
 
-import "./loginContent.scss";
 import { loginRequest } from "../../redux/actions/user.actions";
 import { Paper } from "@material-ui/core";
-import { Formik, Form, Field } from "formik";
+import "./loginContent.scss";
 
 function Copyright() {
   return (
@@ -123,6 +122,7 @@ const LoginContent = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(user.values);
     // dispatch(loginRequest(user, history));
   }
 
