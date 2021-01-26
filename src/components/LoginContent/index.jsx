@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
+import React, { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -8,15 +7,17 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Image from "../../assets/images/login/web-logo.png";
 
 import "./loginContent.scss";
 import { loginRequest } from "../../redux/actions/user.actions";
+import { Paper } from "@material-ui/core";
+import { Formik, Form, Field } from "formik";
 
 function Copyright() {
   return (
@@ -28,7 +29,7 @@ function Copyright() {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Tix.vn
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -38,15 +39,19 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(1),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar: {
-    margin: theme.spacing(1),
-    marginTop: theme.spacing(6),
-    backgroundColor: theme.palette.secondary.main,
+    margin: theme.spacing(3),
+    marginTop: theme.spacing(3),
+    height: 50,
+    width: 50,
+    background: `url(${Image})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -58,28 +63,67 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LoginContent() {
+const LoginContent = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    values: {
+      taiKhoan: "",
+      matKhau: "",
+    },
+    errors: {
+      taiKhoan: "",
+      matKhau: "",
+    },
   });
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setUser({
-      ...user, // clone ra để đủ thuộc tính
-      [name]: value,
-    });
-    // console.log("user: ", user);
-  }
+  const handleChange = (e) => {
+    let { name, value } = e.target;
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    dispatch(loginRequest(user, history));
+    let errorMessage = "";
+
+    // // ktra rong
+    if (value.trim() === "") {
+      errorMessage = "* Trường này không được bỏ trống";
+    }
+    let values = { ...user.values, [name]: value }; // cap nhat gia tri values cho state
+    let errors = { ...user.errors, [name]: errorMessage }; // cap nhat loi cho state
+    setUser(
+      {
+        ...user,
+        values: values,
+        errors: errors,
+      },
+      () => {
+        checkValid();
+      }
+    );
+  };
+
+  const checkValid = () => {
+    let valid = true;
+    for (let key in user.errors) {
+      if (user.errors[key] !== "" || user.values[key] === "") {
+        valid = false;
+      }
+    }
+
+    setUser({
+      ...user,
+      valid: valid,
+    });
+  };
+  // useEffect(() => {
+  //   // dispatch(handleChange());
+  //   return () => {};
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // dispatch(loginRequest(user, history));
   }
 
   return (
@@ -87,11 +131,9 @@ export default function LoginContent() {
       <Container component="main" maxWidth="xs" className="signInContent">
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <NavLink to="/" className={classes.avatar}></NavLink>
           <Typography component="h1" variant="h5">
-            Sign in
+            Đăng nhập
           </Typography>
           <form className={classes.form} noValidate onSubmit={handleSubmit}>
             <TextField
@@ -99,28 +141,39 @@ export default function LoginContent() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="account"
+              label="Tài khoản"
+              name="taiKhoan"
               autoFocus
               onChange={handleChange}
+              onBlur={handleChange}
+              value={user.values.taiKhoan}
             />
+            <Typography className="text-danger " style={{ fontSize: "13px" }}>
+              {user.errors.taiKhoan}
+            </Typography>
+
             <TextField
               onChange={handleChange}
+              onBlur={handleChange}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
+              name="matKhau"
+              label="Mật khẩu"
               type="password"
               id="password"
               autoComplete="current-password"
+              value={user.values.matKhau}
             />
+            <Typography className="text-danger" style={{ fontSize: "13px" }}>
+              {user.errors.matKhau}
+            </Typography>
+
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label="Ghi nhớ đăng nhập"
             />
             <Button
               type="submit"
@@ -129,18 +182,16 @@ export default function LoginContent() {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Đăng nhập
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
+                <Link variant="body2">Quên mật khẩu?</Link>
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+                <NavLink to="/signup" variant="body2">
+                  {"Chưa có tài khoản? Đăng ký ngay"}
+                </NavLink>
               </Grid>
             </Grid>
           </form>
@@ -151,4 +202,6 @@ export default function LoginContent() {
       </Container>
     </div>
   );
-}
+};
+
+export default LoginContent;

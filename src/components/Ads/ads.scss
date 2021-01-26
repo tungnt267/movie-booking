@@ -1,7 +1,8 @@
-@import '../../styles/styles.scss';
 
-.app {
+  @import '../../styles/styles.scss';
+  .app {
     background: url('../../assets/images/backapp.jpg');
+
     background-size: contain;
     padding-top: spacing(12);
     padding-bottom: spacing(8);
@@ -32,7 +33,6 @@
                 .app-link {
                     text-decoration: underline;
                     color: getColor("white");
-                    display: inline-block;
                     padding: spacing(0,0.5);
                 }
             }
@@ -60,6 +60,7 @@
                     -moz-border-radius: 20px;
                     -ms-border-radius: 20px;
                     -o-border-radius: 20px;
+                    
                 }
 
                 .app-slider-img {
@@ -72,6 +73,11 @@
 
                     img {
                         width: 100%;
+                        border-radius: 20px;
+                        -webkit-border-radius: 20px;
+                        -moz-border-radius: 20px;
+                        -ms-border-radius: 20px;
+                        -o-border-radius: 20px;
 
                         &:focus {
                             outline: none;
@@ -125,6 +131,7 @@
                 -ms-border-radius: 30px;
                 -o-border-radius: 30px;
             }
+            
         }
     }
 
@@ -181,6 +188,22 @@
         .app__content__image {
             .content__carousel {
                 padding: 1% 31.5% 0 31.5%;
+            }
+            .slick-list {
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+            }
+            .app-slider-img {
+                img {
+                    border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+                }
             }
         }
     }

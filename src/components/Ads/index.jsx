@@ -1,16 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./ads.scss";
 import Slider from "react-slick";
+import "./ads.scss";
 
 const Ads = () => {
-  var settings = {
-    autoplay: true,
-    infinite: true,
+  const adsList = [
+    {
+      id: 1,
+      img: "../images/advertisePhone/slide3.jpg",
+    },
+    {
+      id: 2,
+      img: "../images/advertisePhone/slide1.jpg",
+    },
+    {
+      id: 3,
+      img: "../images/advertisePhone/slide4.jpg",
+    },
+    {
+      id: 4,
+      img: "../images/advertisePhone/slide9.jpg",
+    },
+    {
+      id: 5,
+      img: "../images/advertisePhone/slide10.jpg",
+    },
+    {
+      id: 6,
+      img: "../images/advertisePhone/slide11.jpg",
+    },
+  ];
+
+  const settings = {
     slidesToShow: 1,
     slidesToScroll: 1,
-    prevArrow: false,
-    nextArrow: false,
+    infinite: true,
+    arrows: true,
+
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 5000,
+  };
+
+  const renderAppCarousel = () => {
+    return adsList.map((adsCarousel, index) => {
+      return (
+        <div key={index} className="app-slider-img">
+          <img src={adsCarousel.img} alt={adsCarousel.img} />
+        </div>
+      );
+    });
   };
   return (
     <div className="app">
@@ -43,30 +82,11 @@ const Ads = () => {
             <div className="app__content__image">
               <img
                 className="img-mobile"
-                src="../images/ads/mobile.png"
+                src="../images/advertisePhone/mobile.png"
                 alt="mobile"
               />
               <div className="content__carousel" id="appItem">
-                <Slider {...settings}>
-                  <div className="app-slider-img">
-                    <img src="../images/ads/slide3.jpg" alt="item" />
-                  </div>
-                  <div className="app-slider-img">
-                    <img src="../images/ads/slide1.jpg" alt="item" />
-                  </div>
-                  <div className="app-slider-img">
-                    <img src="../images/ads/slide4.jpg" alt="item" />
-                  </div>
-                  <div className="app-slider-img">
-                    <img src="../images/ads/slide9.jpg" alt="item" />
-                  </div>
-                  <div className="app-slider-img">
-                    <img src="../images/ads/slide10.jpg" alt="item" />
-                  </div>
-                  <div className="app-slider-img">
-                    <img src="../images/ads/slide11.jpg" alt="item" />
-                  </div>
-                </Slider>
+                <Slider {...settings}>{renderAppCarousel()}</Slider>
               </div>
             </div>
           </div>
