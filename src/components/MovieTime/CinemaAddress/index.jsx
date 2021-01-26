@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCinemaListRequest } from "../../../redux/actions/cinema.action";
 import CinemaAddressItem from "./CinemaAddressItem";
 
 const CinemaAddress = (props) => {
+  const { cinemaList } = useSelector((state) => state.cinema);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCinemaListRequest());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const renderCinemaList = () => {
-    return props.cinemaList?.map((cinema, index) => {
+    return cinemaList?.map((cinema, index) => {
       return (
-        <div key={index} className="tab-pane show" id={cinema.maHeThongRap}>
-          <CinemaAddressItem cinemaId={props.cinemaId} />
+        <div
+          key={index}
+          className="tab-pane fade show"
+          id={cinema.maHeThongRap}
+        >
+          <CinemaAddressItem
+            cinemaId={props.cinemaId}
+            cinemaLogo={cinema.logo}
+          />
         </div>
       );
     });

@@ -16,9 +16,9 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Carousel />
+      {/* <Carousel /> */}
       {/* <FilmBlock /> */}
-      {/* <MovieTime /> */}
+      <MovieTime />
       {/* <Ads /> */}
       {/* <Footer /> */}
     </div>

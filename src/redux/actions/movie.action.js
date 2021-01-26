@@ -63,7 +63,6 @@ export const getMovieDetailRequest = (id) => {
         dispatch(getMovieDetailSuccess(res.data));
         // Stop Loading
         dispatch(stopLoading());
-        console.log(res.data);
       })
       .catch((err) => {
         dispatch(getMovieDetailFailed(err));

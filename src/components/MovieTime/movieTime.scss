@@ -225,9 +225,7 @@
             .hour-link {
               cursor: pointer;
               display: block;
-              @include text(getColor("grey_2"),
-                getFz("body2"),
-                getFw("regular"));
+              @include text(getColor("grey_2"),getFz("body2"),getFw("regular"));
               margin-right: spacing(1);
               margin-bottom: spacing(1);
               padding: spacing(0.5);
@@ -239,12 +237,13 @@
               -moz-border-radius: 7px;
               -ms-border-radius: 7px;
               -o-border-radius: 7px;
-              transition: all 0.2s;
-              -webkit-transition: all 0.2s;
-              -moz-transition: all 0.2s;
-              -ms-transition: all 0.2s;
-              -o-transition: all 0.2s;
-
+              transition: all 0.5s;
+              -webkit-transition: all 0.5s;
+              -moz-transition: all 0.5s;
+              -ms-transition: all 0.5s;
+              -o-transition: all 0.5s;
+              text-decoration: none;
+              
               &__header {
                 @include text(getColor("hour_link_header"),
                   getFz("body1") + 2,

@@ -65,7 +65,7 @@ export const getCinemaGroupRequest = (id) => {
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${id}`,
     })
       .then((res) => {
-        // console.log(res);
+        // console.log(res.data);
         dispatch(getCinemaGroupSuccess(res.data));
         // Stop Loading
         dispatch(stopLoading());
@@ -103,10 +103,10 @@ export const getShowTimeRequest = () => {
     // CinemaService.getShowTimeApi()
     Axios({
       method: "GET",
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP02`,
     })
       .then((res) => {
-        // console.log(res);
+        // console.log(res.data);
         dispatch(getShowTimeSuccess(res.data));
         // Stop Loading
         dispatch(stopLoading());
