@@ -16,9 +16,12 @@ import Image from "../../assets/images/login/web-logo.png";
 import * as yup from "yup";
 
 import { login } from "../../redux/actions/user.actions";
-import "./loginContent.scss";
 import { ErrorMessage, Form, Formik } from "formik";
 import { Paper } from "@material-ui/core";
+
+import "./loginContent.scss";
+import Header from "../Header";
+
 
 function Copyright() {
   return (
@@ -68,9 +71,6 @@ const singInUserSchema = yup.object().shape({
   taiKhoan: yup.string().required("Trường này bắt buộc nhập."),
   matKhau: yup.string().required("Trường này bắt buộc nhập."),
 });
-function handleSubmit(e) {
-  e.preventDefault();
-}
 
 const LoginContent = () => {
   const classes = useStyles();
@@ -78,6 +78,7 @@ const LoginContent = () => {
 
   return (
     <div className="signIn">
+      <Header></Header>
       <Container component="main" maxWidth="xs" className="signInContent">
         <CssBaseline />
         <div className={classes.paper}>
@@ -87,35 +88,31 @@ const LoginContent = () => {
           </Typography>
           <Formik
             initialValues={{ taiKhoan: "", matKhau: "" }}
-            onSubmit={(values) => {
-              dispatch(login(values));
-            }}
-            render={({ handleChange }) => (
+            validationSchema={singInUserSchema}
+            onSubmit={(initialValues) => {
+              dispatch(login(initialValues));
+            }}>
+            {( formikProps ) => (
               <Form className={classes.form} noValidate>
-                {/* onSubmit={handleSubmit} */}
                 <TextField
                   variant="outlined"
                   margin="normal"
                   required
                   fullWidth
-                  id="account"
+                  id="taiKhoan"
                   label="Tài khoản"
                   name="taiKhoan"
                   autoFocus
-                  onChange={handleChange}
-                  // onBlur={handleChange}
-                  // value={user.values.taiKhoan}
+                  onChange={formikProps.handleChange}
                 />
-                <Typography
-                  className="text-danger "
-                  style={{ fontSize: "13px" }}
-                >
-                  {/* {user.errors.taiKhoan} */}
-                </Typography>
+                <ErrorMessage name="taiKhoan">
+                      {(msg) => (
+                        <div className="text-danger errorMessage">{msg} </div>
+                      )}
+                    </ErrorMessage>
 
                 <TextField
-                  onChange={handleChange}
-                  // onBlur={handleChange}
+                  onChange={formikProps.handleChange}
                   variant="outlined"
                   margin="normal"
                   required
@@ -123,16 +120,14 @@ const LoginContent = () => {
                   name="matKhau"
                   label="Mật khẩu"
                   type="password"
-                  id="password"
+                  id="matKhau"
                   autoComplete="current-password"
-                  // value={user.values.matKhau}
                 />
-                <Typography
-                  className="text-danger"
-                  style={{ fontSize: "13px" }}
-                >
-                  {/* {user.errors.matKhau} */}
-                </Typography>
+                <ErrorMessage name="matKhau">
+                      {(msg) => (
+                        <div className="text-danger errorMessage">{msg} </div>
+                      )}
+                    </ErrorMessage>
 
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
@@ -159,7 +154,7 @@ const LoginContent = () => {
                 </Grid>
               </Form>
             )}
-          />
+          </Formik>
         </div>
         <Box mt={8}>
           <Copyright />

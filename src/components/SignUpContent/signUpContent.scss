@@ -13,6 +13,7 @@
         background-color: white;
         .errorMessage {
             font-size: 13px;
+            padding-top: spacing(0.5);
         }
     }
     @media screen and (max-width : 599px) {

@@ -1,19 +1,28 @@
-import axios from "axios";
+import { createAction } from ".";
 import { userService } from "../../services";
-import { DOMAIN } from "../../util/constants/settingSystem";
+import { FETCH_CREDENTIALS } from "../constants/user.constant";
 
+export const register = (data) => {
+  return (dispatch) => {
+    userService
+      .signUp(data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
 export const login = (user) => {
+  
   return (dispatch) => {
     userService
       .signIn(user)
-      // ({
-      //   method: "POST",
-      //   url: `${DOMAIN}/QuanLyNguoiDung/DangNhap`,
-      //   // url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap`,
-      //   data: user,
-      // }).signIn(user)
       .then((res) => {
-        console.log(res);
+        dispatch(createAction(FETCH_CREDENTIALS, res.data));
+        localStorage.setItem("credentials", JSON.stringify(res.data))
+        // console.log(res);
       })
       .catch((err) => {
         console.log(err);
