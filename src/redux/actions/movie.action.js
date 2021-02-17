@@ -68,7 +68,6 @@ export const getMovieDetailRequest = (id) => {
         dispatch(getMovieDetailFailed(err));
         // Stop Loading
         dispatch(stopLoading());
-        console.log(err);
       });
   };
 };

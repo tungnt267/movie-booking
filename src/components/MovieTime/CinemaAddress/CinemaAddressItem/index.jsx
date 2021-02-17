@@ -19,6 +19,9 @@ const CinemaAddressItem = (props) => {
             data-toggle="tab"
             href={`#${item.maCumRap}`}
             aria-selected="true"
+            onClick={() => {
+              props.setIdCinemaGroup(item.maCumRap);
+            }}
           >
             <div className="address__content">
               <div className="address-logo">

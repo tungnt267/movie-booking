@@ -35,7 +35,7 @@ const Ads = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,
-    arrows: true,
+    arrows: false,
 
     speed: 500,
     autoplay: true,

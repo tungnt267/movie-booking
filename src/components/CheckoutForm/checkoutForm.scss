@@ -51,14 +51,8 @@
             justify-content: space-between;
 
             &__info {
-                span {
+                .sp-info {
                     color: getColor("primary");
-                }
-            }
-
-            &__cash {
-                span {
-                    color: getColor("green");
                 }
             }
         }

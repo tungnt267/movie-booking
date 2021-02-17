@@ -4,7 +4,7 @@
     position: relative;
     top: 60px;
     // background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
-    background: url('../../assets/images/detail/sac-dep-doi-tra-false-beauty-c16.jpg') no-repeat center center;
+    background: no-repeat center center;
     background-size: cover;
     padding: spacing(5, 0);
   
@@ -29,7 +29,6 @@
         -o-transition: all 0.2s;
   
         .cinema-img {
-          background: url("../../assets/images/detail/sac-dep-doi-tra-false-beauty.jpg");
           padding-top: 150%;
           background-position: center, 0 0;
           background-size: 100% auto;

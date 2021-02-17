@@ -1,14 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getCinemaListRequest } from "../../../redux/actions/cinema.action";
+import React from "react";
+import { useSelector } from "react-redux";
 
 const CinemaLogo = (props) => {
   const { cinemaList } = useSelector((state) => state.cinema);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCinemaListRequest());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const renderCinemaList = () => {
     return cinemaList?.map((cinema, index) => {

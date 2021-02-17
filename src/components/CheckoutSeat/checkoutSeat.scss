@@ -1,10 +1,5 @@
 @import '../../styles/styles.scss';
 .checkout {
-    // position: relative;
-    // background: url('https://s3img.vcdn.vn/123phim/2020/11/gia-dinh-croods-ky-nguyen-moi-the-croods-new-age-p-16057775991222.png') center center no-repeat;
-    // background-size: cover;
-    // height: 100%;
-  
     &__header {
       position: fixed;
       width: 75%;
@@ -118,25 +113,39 @@
       .seat-list {
         display: flex;
         justify-content: space-around;
+
+        .seat-list__head {
+          display: flex;
+          flex-direction: column;
+          font-size: getFz("h5") + 4;
+          padding-top: spacing(2);
+
+          .seat-title {
+            line-height: 48px;
+          }
+        }
   
         .tbl-seat-list {
-          .tr-seat {
-            .th-seat {
-              @include text(getColor("black_2"), getFz("h6"), getFw("regular"));
-              padding-right: spacing(12);
-              text-align: center;
-            }
-  
+          display: grid;
+          place-items: center;
+          margin: auto;
+          width: 85%;
+          
+          .MuiButton-root {
+            min-width: 40px;
+          }
+
+          .MuiButtonBase-root {
+            padding: 0px;
+            font-size: 28px;
+            outline: none;
+          }
+
+          .tr-seat {  
             .fa-chair {
               font-size: getFz("h6");
               color: getColor("black_2");
               margin-right: spacing(1.5);
-              cursor: pointer;
-            }
-  
-            .fa-couch {
-              font-size: getFz("h5");
-              color: #b03550;
               cursor: pointer;
             }
   
@@ -157,7 +166,7 @@
           padding: spacing(0, 1.2);
   
           .fa-chair {
-            font-size: getFz("body2");
+            font-size: getFz("h5");
             color: getColor("black_2");
           }
   
@@ -169,10 +178,6 @@
             color: #f7b500;
           }
   
-          .fa-couch {
-            color: #b03550;
-          }
-  
           .selecting {
             color: #44c020;
           }
@@ -180,27 +185,55 @@
           .selected {
             color: getColor("grey_1");
           }
-  
-          .unable {
-            color: #cfd3d6;
-          }
         }
       }
     }
   
+    @include respond-to("extra-large") {
+      .seat-map {
+        .seat-list {
+          .seat-list__head {
+            font-size: 25px;
+  
+            .seat-title {
+              line-height: 45px;
+            }
+          }
+
+          .tbl-seat-list {
+            .MuiButton-root {
+              min-width: 35px;
+            }
+
+            .MuiButtonBase-root {
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+
     @include respond-to("large") {
       .seat-map {
-        padding-top: spacing(2);
-  
+        padding: 0 !important;
         .seat-list {
-          display: flex;
-          justify-content: space-around;
+          width: 70%;
+
+          .seat-list__head {
+            font-size: 25px;
   
+            .seat-title {
+              line-height: 45px;
+            }
+          }
+
           .tbl-seat-list {
-            .tr-seat {
-              .th-seat {
-                padding-right: spacing(4);
-              }
+            .MuiButton-root {
+              min-width: 28px;
+            }
+
+            .MuiButtonBase-root {
+              font-size: 25px;
             }
           }
         }
@@ -248,24 +281,30 @@
           }
         }
       }
+      
+      .container-config__small {
+        padding: 0;
+      }
+
+      .seat-map {
+        .seat-list {
+          width: 100%;
+
+          .seat-list__head {
+            font-size: 18px;
   
-      .seat-list {
-        justify-content: space-around;
-  
-        .tbl-seat-list {
-          .tr-seat {
-            .th-seat {
-              padding-right: spacing(2.5) !important;
-              font-size: getFz("body2") !important;
+            .seat-title {
+              line-height: 38px;
             }
-  
-            .fa-chair {
-              font-size: getFz("body2") !important;
-              margin-right: spacing(1) !important;
+          }
+
+          .tbl-seat-list {
+            .MuiButton-root {
+              min-width: 20px;
             }
-  
-            .fa-couch {
-              font-size: getFz("body1") !important;
+
+            .MuiButtonBase-root {
+              font-size: 18px;
             }
           }
         }
@@ -273,6 +312,10 @@
     }
   
     @include respond-to("x-small") {
+      .container-config__x-small{
+        padding: 5px;
+      }
+
       .checkout__content {
         flex-direction: column;
   
@@ -289,23 +332,25 @@
         }
       }
   
-      .seat-list {
-        justify-content: space-around;
+      .seat-map {
+        .seat-list {
+          .seat-list__head {
+            font-size: 12px;
   
-        .tbl-seat-list {
-          .tr-seat {
-            .th-seat {
-              padding-right: spacing(2) !important;
-              font-size: getFz("subtitle2") !important;
+            .seat-title {
+              line-height: 32px;
             }
-  
-            .fa-chair {
-              font-size: getFz("subtitle2") !important;
-              margin-right: spacing(0.5) !important;
+          }
+
+          .tbl-seat-list {
+            width: 95%;
+
+            .MuiButton-root {
+              min-width: 14px;
             }
-  
-            .fa-couch {
-              font-size: getFz("body2") !important;
+
+            .MuiButtonBase-root {
+              font-size: 12px;
             }
           }
         }

@@ -6,6 +6,8 @@ import {
   GET_CINEMA_LIST_FAILED,
   GET_CINEMA_LIST_SUCCESS,
   GET_SHOW_TIME_FAILED,
+  GET_SHOW_TIME_INFO_FAILED,
+  GET_SHOW_TIME_INFO_SUCCESS,
   GET_SHOW_TIME_SUCCESS,
 } from "../constants/cinema.constant";
 import Axios from "axios";
@@ -94,7 +96,7 @@ const getCinemaGroupFailed = (error) => {
 };
 
 // Showtime
-export const getShowTimeRequest = () => {
+export const getShowTimeRequest = (id) => {
   return (dispatch) => {
     // Start Loading
     dispatch(startLoading());
@@ -103,7 +105,7 @@ export const getShowTimeRequest = () => {
     // CinemaService.getShowTimeApi()
     Axios({
       method: "GET",
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP02`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${id}&maNhom=GP02`,
     })
       .then((res) => {
         // console.log(res.data);
@@ -130,6 +132,45 @@ const getShowTimeSuccess = (showTime) => {
 const getShowTimeFailed = (error) => {
   return {
     type: GET_SHOW_TIME_FAILED,
+    payload: error,
+  };
+};
+
+// Movie Showtime Info
+export const getShowTimeInfoRequest = (id) => {
+  return (dispatch) => {
+    // Start Loading
+    dispatch(startLoading());
+
+    // Call API
+    // MovieService.getShowTimeInfoApi()
+    Axios({
+      method: "GET",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${id}`,
+    })
+      .then((res) => {
+        dispatch(getShowTimeInfoSuccess(res.data));
+        // Stop Loading
+        dispatch(stopLoading());
+      })
+      .catch((err) => {
+        dispatch(getShowTimeInfoFailed(err));
+        // Stop Loading
+        dispatch(stopLoading());
+      });
+  };
+};
+
+const getShowTimeInfoSuccess = (ShowTimeInfo) => {
+  return {
+    type: GET_SHOW_TIME_INFO_SUCCESS,
+    payload: ShowTimeInfo,
+  };
+};
+
+const getShowTimeInfoFailed = (error) => {
+  return {
+    type: GET_SHOW_TIME_INFO_FAILED,
     payload: error,
   };
 };

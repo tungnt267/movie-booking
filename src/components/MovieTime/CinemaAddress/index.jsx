@@ -12,20 +12,19 @@ const CinemaAddress = (props) => {
   }, []);
 
   const renderCinemaList = () => {
-    return cinemaList?.map((cinema, index) => {
-      return (
-        <div
-          key={index}
-          className="tab-pane fade show"
-          id={cinema.maHeThongRap}
-        >
-          <CinemaAddressItem
-            cinemaId={props.cinemaId}
-            cinemaLogo={cinema.logo}
-          />
-        </div>
-      );
-    });
+    return cinemaList
+      ?.filter((item) => item.maHeThongRap === props.cinemaId)
+      ?.map((cinema, index) => {
+        return (
+          <div key={index} className="tab-pane show" id={cinema.maHeThongRap}>
+            <CinemaAddressItem
+              cinemaId={props.cinemaId}
+              setIdCinemaGroup={props.setIdCinemaGroup}
+              cinemaLogo={cinema.logo}
+            />
+          </div>
+        );
+      });
   };
   return (
     <div className="cinema-address movie-time__item">

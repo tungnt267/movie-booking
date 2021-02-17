@@ -20,9 +20,11 @@
 
     .movie-time__item {
       border-right: 1px solid getBg("border_movie_time");
+      
       .tab-pane {
-        display: none;
+        display: block;
       }
+
       .tab-pane.active {
         display: block;
       }
@@ -70,6 +72,22 @@
     }
 
     .cinema-address {
+      max-height: 800px;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 5px !important;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: getBg("grey_1");
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+      }
+      
       .cinema-item {
         .cinema-link {
           .address__content {

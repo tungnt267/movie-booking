@@ -3,9 +3,9 @@ import "./videoModal.scss";
 
 const VideoModal = (props) => {
   const renderModal = () => {
-    return props.list.map((item, index) => {
+    return props.list?.map((item, index) => {
       return (
-        <div key={index} className="modal" id={`carouselModal${item.id}`}>
+        <div key={index} className="modal" id={`carouselModal${item.maPhim}`}>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-body">

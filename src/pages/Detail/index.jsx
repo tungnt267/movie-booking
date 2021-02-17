@@ -1,29 +1,36 @@
+// import { CircularProgress } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import DetailBottom from "../../components/DetailBottom";
 import DetailTop from "../../components/DetailTop";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { getDetailMovieRequest } from "../../redux/actions/detail.action";
+import { getMovieDetailRequest } from "../../redux/actions/movie.action";
 
 const Detail = () => {
-  const { movieDetail } = useSelector((state) => state.detail);
   const dispatch = useDispatch();
+  const { id } = useParams();
+  let { movieDetail } = useSelector((state) => state.movie);
 
-  useEffect(() => {
-    dispatch(getDetailMovieRequest());
-    return () => {};
+  useEffect(function () {
+    dispatch(getMovieDetailRequest(id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(movieDetail);
+
+  // const { isLoading } = useSelector((state) => state.loading);
+  // if (isLoading) {
+  //   return <CircularProgress />;
+  // } else {
   return (
     <div>
       <Header />
       <DetailTop movieDetail={movieDetail} />
-      <DetailBottom />
+      <DetailBottom movieDetail={movieDetail} />
       <Footer />
     </div>
   );
+  // }
 };
 
 export default Detail;

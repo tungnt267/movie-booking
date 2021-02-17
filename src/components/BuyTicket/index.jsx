@@ -22,21 +22,27 @@ const BuyTicket = () => {
 
   useEffect(() => {
     dispatch(getMovieListRequest());
-    dispatch(getMovieDetailRequest(values?.filmSelect));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    dispatch(getMovieDetailRequest(values.filmSelect));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
   const handleChange = (e) => {
-    let { value, name } = e.target;
-
-    let newValues = { ...values };
-    newValues = { ...newValues, [name]: value };
-
-    setValues(newValues);
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const renderMovieList = () => {
-    return movieList
+    const unique = [];
+    movieList?.map((x) =>
+      unique.filter((a) => a.tenPhim === x.tenPhim).length > 0
+        ? null
+        : unique.push(x)
+    );
+
+    return unique
       ?.sort((a, b) =>
         nonAccentVietnamese(a.tenPhim) > nonAccentVietnamese(b.tenPhim)
           ? 1
@@ -215,7 +221,6 @@ const BuyTicket = () => {
             <button
               className="btn btn-buy-ticket"
               onClick={() => {
-                console.log(movieDetail.lichChieu);
                 history.push(`/booking/${movieDetail?.biDanh}`);
               }}
             >

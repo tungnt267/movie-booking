@@ -1,10 +1,11 @@
 import React from "react";
 import MovieTime from "../MovieTime";
+import format from "date-format";
 import "./detailBottom.scss";
 
-const DetailBottom = () => {
+const DetailBottom = (props) => {
   return (
-    <section className="detail-bottom">
+    <section className="detail-bottom" id="toShowTime">
       <div className="detail-bottom__info container">
         <div className="info__tab">
           {/* Nav tabs */}
@@ -46,7 +47,12 @@ const DetailBottom = () => {
                   <div className="info-detail">
                     <div className="row left-info">
                       <p className="content-title">Ngày công chiếu</p>
-                      <p className="content-info ng-binding">14.02.2020</p>
+                      <p className="content-info ng-binding">
+                        {format(
+                          "dd.mm.yyyy",
+                          new Date(props.movieDetail?.ngayKhoiChieu)
+                        )}
+                      </p>
                     </div>
                     <div className="row left-info">
                       <p className="content-title">Đạo diễn</p>
@@ -54,7 +60,7 @@ const DetailBottom = () => {
                     </div>
                     <div className="row left-info">
                       <p className="content-title">Diễn viên</p>
-                      <p className="content-info">Hương Giang, Puka</p>
+                      <p className="content-info">Jackie Chain</p>
                     </div>
                     <div className="row left-info">
                       <p className="content-title">Thể Loại</p>
@@ -76,19 +82,7 @@ const DetailBottom = () => {
                       <p className="content-title">Nội dung</p>
                     </div>
                     <div className="row left-info">
-                      <p className="description">
-                        Phim xoay quanh câu chuyện cuộc đời của Dương - một anh
-                        chàng cascadeur nhưng lại mang trong mình khát khao trở
-                        thành phụ nữ. Một ngày nọ, ước mơ ấy bỗng phải trở thành
-                        hiện thực ngay lập tức khi Dương tình cờ chứng kiến một
-                        vụ giết người và buộc phải thay đổi nhân dạng để lẩn
-                        trốn. Sau cuộc phẫu thuật chuyển giới, cha của Dương đột
-                        ngột lâm bệnh nặng, khiến cô phải bất đắc dĩ tham gia
-                        vào một cuộc thi Hoa hậu để có đủ tiền lo viện phí cho
-                        cha. Kể từ đó, rất nhiều tình huống bi hài và nguy hiểm
-                        không ngừng xảy đến với cô. Cùng đoán xem Dương sẽ phải
-                        trải qua những gian truân như thế nào?
-                      </p>
+                      <p className="description">{props.movieDetail?.moTa}</p>
                     </div>
                   </div>
                 </div>
