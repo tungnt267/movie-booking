@@ -1,11 +1,10 @@
 import Axios from "axios";
-import { DOMAIN } from "../util/constants/settingSystem";
 
 class UserService {
   // eslint-disable-next-line no-useless-constructor
   signUp = (data) => {
     return Axios({
-      url: `${DOMAIN}/QuanLyNguoiDung/DangKy`,
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
       method: "POST",
       data,
     });
@@ -13,8 +12,8 @@ class UserService {
 
   signIn = (user) => {
     return Axios({
-      url: `${DOMAIN}/QuanLyNguoiDung/DangNhap`,
       method: "POST",
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
       data: user,
     });
   };

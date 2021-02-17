@@ -10,13 +10,18 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import "./signUpContent.scss";
-import { FormHelperText, Paper } from "@material-ui/core";
+import {  Paper } from "@material-ui/core";
 import Image from "../../assets/images/login/web-logo.png";
 import { NavLink } from "react-router-dom";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/actions/user.actions";
 import * as yup from "yup";
-import { userService } from "../../services";
+import "./signUpContent.scss";
+
+
+
 function Copyright() {
   return (
     <Typography
@@ -65,84 +70,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const signUpUserSchema = yup.object().shape({
-  taiKhoan: yup.string().required("* Trường này không được bỏ trống"),
-  matKhau: yup.string().required("* Trường này không được bỏ trống"),
-  hoTen: yup.string().required("* Trường này không được bỏ trống"),
+ const signUpUserSchema = yup.object().shape({
+  taiKhoan: yup.string().required("* Trường này không được bỏ trống."),
+  matKhau: yup.string().required("* Trường này không được bỏ trống.")
+  .matches(/([A-Z]+)/,"Mật khẩu phải có ít nhất 1 chữ in hoa."  )
+  .matches(/([0-9]+)/,"Mật khẩu phải có ít nhất 1 chữ số."  )
+  .matches(/([!@#$%^&*]+)/, "Mật khẩu phải có ít nhất 1 ký tự đặc biệt." )
+  .min(6, "Mật khẩu phải có ít nhất 6 ký tự.")
+  .max(12, "Mật khẩu tối đa là 12 ký tự."),
+  // xacNhanMatKhau: yup.string().required("* Trường này không được bỏ trống."),
+  // .oneOf([yup.ref('matKhau'), null], "Mật khẩu không khớp."),
+  hoTen: yup.string().required("* Trường này không được bỏ trống."),
   email: yup
     .string()
-    .required("* Trường này không được bỏ trống")
+    .required("* Trường này không được bỏ trống.")
     .email("Email không đúng định dạng!"),
   soDt: yup
     .string()
-    .required("* Trường này không được bỏ trống")
-    .matches(/^[0-9]+$/),
+    .required("* Trường này không được bỏ trống.")
+    .matches(/^[0-9]+$/, "Số điện thoại phải là chữ số.")
+    .min(9, "Số điện thoại phải có ít nhất 9 số.")
+    .max(11, "Số điện thoại nhiều nhất là 11 số."),
 });
 export default function SignUpContent() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  
+  const handleChangeConfirmPass = (e, values) => {
+    // console.log(e.target.value)
+    // console.log(e.target.name)
+    // console.log(values)
+    // if(name === xacNhanMatKhau) {}
+  }
 
-  //   if (value.trim() === "") {
-  //     errorMessage = "* Trường này không được bỏ trống";
-  //   }
-
-  //   // check email pattern
-  //   if (type === "email") {
-  //     const emailRegex =
-  //       "^[a-z][a-z0-9_.]{5,32}@[a-z0-9]{2,}(.[a-z0-9]{2,4}){1,2}$";
-  //     if (!value.match(emailRegex)) {
-  //       errorMessage = "Email không đúng định dạng!";
-  //     }
-  //   }
-
-  //   if (name === "phone") {
-  //     const phoneRegex = `^(0|[0-9][0-9]*).{9,11}$`;
-  //     if (!value.match(phoneRegex)) {
-  //       errorMessage = "* Số điện thoại không đúng định dạng!";
-  //     }
-  //   }
-
-  //   if (name === "password") {
-  //     if (value.length < 6) {
-  //       errorMessage = "Mật khẩu phải có ít nhất 6 ký tự.";
-  //     } else if (!/([A-Z]+)/g.test(value)) {
-  //       errorMessage = "Mật khẩu phải có ít nhất 1 chữ in hoa.";
-  //     } else if (!/([0-9]+)/g.test(value)) {
-  //       errorMessage = "Mật khẩu phải có ít nhất 1 chữ số.";
-  //     } else if (!/([!@#$%^&*]+)/g.test(value)) {
-  //       errorMessage = "Mật khẩu phải có ít nhất 1 ký tự đặc biệt.";
-  //     } else if (value.length > 16) {
-  //       errorMessage = "Mật khẩu không được vượt quá 16 ký tự.";
-  //     } else {
-  //       errorMessage = "";
-  //     }
-  //   }
-  //   if (name === "confirmPassword") {
-  //     if (value !== user.values.password) {
-  //       errorMessage = "* Mật khẩu không khớp. Hãy thử lại.";
-  //     }
-  //   }
-
-  //   let values = { ...user.values, [name]: value };
-  //   let errors = { ...user.errors, [name]: errorMessage };
-  //   setUser(
-  //     {
-  //       ...user,
-  //       values: values,
-  //       errors: errors,
-  //     },
-  //     () => {
-  //       checkValid();
-  //     }
-  //   );
-  // };
-
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  // }
-
-  const handleSubmit = (values) => {
-    userService.signUp(values);
-  };
   return (
     <div className="signUp">
       <Container component="main" maxWidth="xs" className="signUpContent">
@@ -163,7 +123,9 @@ export default function SignUpContent() {
               hoTen: "",
             }}
             validationSchema={signUpUserSchema}
-            onSubmit={handleSubmit}
+            onSubmit={(initialValues) => {
+              dispatch(register(initialValues));
+            }}
           >
             {(formikProps) => (
               <Form className={classes.form}>
@@ -216,7 +178,11 @@ export default function SignUpContent() {
                       autoFocus
                       onChange={formikProps.handleChange}
                     />
-                    <FormHelperText className="text-danger errorMessage  "></FormHelperText>
+                    <ErrorMessage name="hoTen">
+                      {(msg) => (
+                        <div className="text-danger errorMessage">{msg} </div>
+                      )}
+                    </ErrorMessage>
                   </Grid>
 
                   <Grid item xs={12}>
@@ -231,7 +197,11 @@ export default function SignUpContent() {
                       autoComplete="email"
                       onChange={formikProps.handleChange}
                     />
-                    <FormHelperText className="text-danger errorMessage  "></FormHelperText>
+                    <ErrorMessage name="email">
+                      {(msg) => (
+                        <div className="text-danger errorMessage">{msg} </div>
+                      )}
+                    </ErrorMessage>
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <TextField
@@ -245,7 +215,11 @@ export default function SignUpContent() {
                       autoComplete="current-password"
                       onChange={formikProps.handleChange}
                     />
-                    <FormHelperText className="text-danger errorMessage  "></FormHelperText>
+                    <ErrorMessage name="matKhau">
+                      {(msg) => (
+                        <div className="text-danger errorMessage">{msg} </div>
+                      )}
+                    </ErrorMessage>
                   </Grid>
 
                   <Grid item xs={12} sm={6}>
@@ -257,9 +231,13 @@ export default function SignUpContent() {
                       type="password"
                       label="Xác nhận mật khẩu"
                       id="xacNhanMatKhau"
-                      onChange={formikProps.handleChange}
+                      onChange={handleChangeConfirmPass}
                     />
-                    <FormHelperText className="text-danger errorMessage"></FormHelperText>
+                    <ErrorMessage name="xacNhanMatKhau">
+                      {(msg) => (
+                        <div className="text-danger errorMessage">{msg} </div>
+                      )}
+                    </ErrorMessage>
                   </Grid>
 
                   <Grid item xs={12} sm={6}>

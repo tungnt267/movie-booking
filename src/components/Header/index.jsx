@@ -1,9 +1,17 @@
-import React from "react";
+import React  from "react";
 import { Link, NavLink } from "react-router-dom";
 import NavbarExpanded from "./NavbarExpanded";
+import { useDispatch, useSelector } from "react-redux";
+
 import "./header.scss";
 
+
 const Header = () => {
+  const { credentials } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const handleLogin = () => {
+    
+  };
   return (
     <div>
       <div id="header" className="header">
@@ -46,11 +54,21 @@ const Header = () => {
               <div className="navbar__right">
                 <div className="navbar__right__login">
                   <img src="../images/header/avatar.png" alt="avatar" />
-                  <NavLink to="/login" className="login">
-                    Đăng Nhập
-                  </NavLink>
+                  {credentials ? (
+                      <div className="dropdown dropdownLogOut">
+                        <span 
+                        > Hi, {credentials.hoTen}</span>
+                        <div className="dropdown-content">
+                          <span  onClick={handleLogin}>Đăng xuất</span>
+                        </div>
+                      </div>
+                  ) : (
+                    <NavLink to="/login" className="login">
+                      Đăng Nhập
+                    </NavLink>
+                  )}
                 </div>
-                <div className="navbar__right__location dropdown d-none d-md-block">
+                {/* <div className="navbar__right__location dropdown d-none d-md-block">
                   <Link
                     to="/"
                     className="nav-link dropdown-toggle"
@@ -108,6 +126,7 @@ const Header = () => {
                     </Link>
                   </div>
                 </div>
+              </div> */}
               </div>
             </div>
           </nav>
