@@ -36,14 +36,6 @@ const DetailTop = (props) => {
                   backgroundImage: `url('${props.movieDetail?.hinhAnh}')`,
                 }}
               />
-              <button
-                className="btn-trailer"
-                href="#"
-                data-toggle="modal"
-                data-target={`#carouselModal${props.movieDetail?.maPhim}`}
-              >
-                <img src="../images/detail/play-video.png" alt="play-video" />
-              </button>
             </div>
           </div>
           <div className="col-12 col-md-5">

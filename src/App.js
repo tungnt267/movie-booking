@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Booking from "./pages/Booking";
 import { createAction } from "./redux/actions";
 import { FETCH_CREDENTIALS } from "./redux/constants/user.constant";
-import { Component, useEffect } from "react";
+import { Component } from "react";
 import { connect } from "react-redux";
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/detail/:id" component={Detail} />
-          <Route exact path="/booking/:id" component={Booking} />
+          <Route exact path="/booking/:idBooking" component={Booking} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Home} />

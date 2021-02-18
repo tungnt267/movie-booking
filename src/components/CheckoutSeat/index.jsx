@@ -2,7 +2,6 @@ import React from "react";
 import { useStyles } from "./style";
 import "./checkoutSeat.scss";
 import { Button } from "@material-ui/core";
-import { postBookingRequest } from "../../redux/actions/booking.action";
 import { useDispatch } from "react-redux";
 
 const CheckoutSeat = (props) => {
@@ -75,47 +74,10 @@ const CheckoutSeat = (props) => {
     });
   };
 
-  // const handleBooking = () => {
-  //   let danhSachVe = props.danhSachGhe?.filter((ghe) => ghe.dangChon);
-  //   danhSachVe = danhSachVe.map((ghe) => ({
-  //     maGhe: ghe.maGhe,
-  //     giaVe: ghe.giaVe,
-  //   }));
-  //   dispatch(postBookingRequest(idBooking, danhSachVe));
-  // };
-
   return (
     <div className="col-12 col-md-9 p-0 col-left">
       <div className="container container-config__small">
-        <div className="checkout__header">
-          <div className="pick-seat d-none d-md-block">
-            <span className="pick-seat__text active">
-              <span className="pick-seat__step">01</span>
-              CHỌN GHẾ &amp; THANH TOÁN
-            </span>
-            <span className="pick-seat__text">
-              <span className="pick-seat__step">02</span>
-              KẾT QUẢ ĐẶT VÉ
-            </span>
-          </div>
-          <div className="header-md d-md-none">
-            <span className="pick-seat__text">
-              <span className="pick-seat__step">03.</span>
-              THANH TOÁN
-            </span>
-          </div>
-          <div className="header__user">
-            <img
-              className="user-img"
-              src="../images/checkout/avatar-user.jpg"
-              alt="avatar-user"
-            />
-            <span className="user__text d-none d-lg-inline">
-              Thanh Tung Nguyen
-            </span>
-          </div>
-        </div>
-        <div className="checkout__content px-3">
+        <div className="checkout__content">
           <div className="left-title">
             <div className="logo-cinema">
               <img
@@ -139,13 +101,6 @@ const CheckoutSeat = (props) => {
                 - {props.thongTinPhim?.tenRap}
               </p>
             </div>
-          </div>
-          <div className="right-title">
-            <p className="info1">thời gian giữ ghế</p>
-            <p className="info2">
-              <span className="minute">03</span>:
-              <span className="second">50</span>
-            </p>
           </div>
         </div>
         <div className="seat-map px-3">

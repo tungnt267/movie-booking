@@ -141,7 +141,12 @@ const FilmBlock = () => {
               }}
             >
               <div className="film__overlay">
-                <button className="btn-trailer">
+                <button
+                  className="btn-trailer"
+                  href="#"
+                  data-toggle="modal"
+                  data-target={`#carouselModal${movie.maPhim}`}
+                >
                   <img
                     src="../images/carousel/play-video.png"
                     alt="play-video"

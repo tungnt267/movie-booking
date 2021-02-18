@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 export const useStyles = makeStyles(() => ({
   daDat: {
     marginTop: "10px",
-    color: "#949494",
+    color: "#FA4226",
   },
 
   dangChon: {

@@ -1,7 +1,20 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { postBookingRequest } from "../../redux/actions/booking.action";
 import "./checkoutForm.scss";
 
 const CheckoutForm = (props) => {
+  const user = JSON.parse(localStorage.getItem("credentials"));
+  const dispatch = useDispatch();
+
+  const handleBooking = () => {
+    let danhSachVe = props.danhSachChon.map((ghe) => ({
+      maGhe: ghe.maGhe,
+      giaVe: ghe.giaVe,
+    }));
+    dispatch(postBookingRequest(props.idBooking, danhSachVe));
+  };
+
   const renderDanhSachGhe = () => {
     let seatRow = "";
     let seatNum = "";
@@ -96,13 +109,11 @@ const CheckoutForm = (props) => {
             </div>
             <div className="email checkout__form__item">
               <label htmlFor="email">E-Mail</label>
-              {/* <input type="email" name="email" /> */}
-              <span>string@gmail.com</span>
+              <span>{user.email}</span>
             </div>
             <div className="phone checkout__form__item">
               <label htmlFor="phone">Phone</label>
-              {/* <input type="text" name="phone" /> */}
-              <span>0987654321</span>
+              <span>{user.soDT}</span>
             </div>
             <div className="voucher checkout__form__item">
               <div className="voucher-left">
@@ -195,9 +206,25 @@ const CheckoutForm = (props) => {
                 <span className="sp-notice"> Email</span> đã nhập
               </span>
             </div>
-            <button type="button" className="btn-secondary btn-book-ticket">
-              Đặt vé
-            </button>
+            {props.danhSachChon.length > 0 ? (
+              <button
+                type="button"
+                style={{ background: "#ce3017", color: "#ffffff" }}
+                className="btn-book-ticket"
+                onClick={handleBooking}
+              >
+                Đặt vé
+              </button>
+            ) : (
+              <button
+                disabled
+                type="button"
+                className="btn-secondary btn-book-ticket"
+                style={{ cursor: "not-allowed" }}
+              >
+                Đặt vé
+              </button>
+            )}
           </form>
         </div>
       </div>

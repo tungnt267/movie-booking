@@ -1,67 +1,14 @@
 @import '../../styles/styles.scss';
+
 .checkout {
-    &__header {
-      position: fixed;
-      width: 75%;
-      background-color: getBg("white");
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-      top: 0;
-      left: 0;
-      height: 80px;
-      z-index: 2;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-  
-      .pick-seat {
-        &__text {
-          position: relative;
-          line-height: 80px;
-          padding: spacing(0, 3);
-          @include text(getColor("black_2"),
-            getFz("subtitle2"),
-            getFw("medium"));
-  
-          .pick-seat__step {
-            font-size: getFz("body1") + 2;
-            margin-right: spacing(0.5);
-          }
-        }
-  
-        &__text.active {
-          color: getColor("primary");
-        }
-      }
-  
-      .header__user {
-        cursor: pointer;
-        text-align: right;
-        padding-right: spacing(2);
-        line-height: 80px;
-  
-        .user-img {
-          width: 30px;
-          height: 30px;
-          margin-right: 5px;
-          border-radius: 50%;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          -ms-border-radius: 50%;
-          -o-border-radius: 50%;
-        }
-  
-        .user__text {
-          @include text(getColor("grey_2"), getFz("body2"), getFw("regular"));
-        }
-      }
-    }
-  
+    padding-top: 60px;
     &__content {
-      padding-top: spacing(3);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: spacing(8);
+      margin: spacing(1, 0);
+      margin-top: spacing(3);
+      padding-left: spacing(6);
   
       .left-title {
         display: flex;
@@ -119,6 +66,7 @@
           flex-direction: column;
           font-size: getFz("h5") + 4;
           padding-top: spacing(2);
+          padding-left: spacing(2);
 
           .seat-title {
             line-height: 48px;
@@ -183,7 +131,7 @@
           }
   
           .selected {
-            color: getColor("grey_1");
+            color: getColor("primary");
           }
         }
       }
@@ -216,9 +164,8 @@
     @include respond-to("large") {
       .seat-map {
         padding: 0 !important;
-        .seat-list {
-          width: 70%;
 
+        .seat-list {
           .seat-list__head {
             font-size: 25px;
   
@@ -336,6 +283,8 @@
         .seat-list {
           .seat-list__head {
             font-size: 12px;
+          padding-left: spacing(0.5);
+          padding-right: spacing(0.5);
   
             .seat-title {
               line-height: 32px;
