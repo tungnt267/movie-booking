@@ -17,8 +17,8 @@ const Booking = () => {
   }, []);
 
   let danhSachChon = danhSachGhe?.filter((ghe) => ghe.dangChon);
-
   const rowLength = danhSachGhe.length / 10;
+
   return (
     <section className="checkout">
       <div className="container container-config__x-small">

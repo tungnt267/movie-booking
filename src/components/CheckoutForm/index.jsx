@@ -38,8 +38,7 @@ const CheckoutForm = (props) => {
         seatRow = "J";
         seatNum = +ghe.stt - 9 * (props.rowLength + 1);
       }
-      console.log(props.danhSachChon.length);
-      console.log(index);
+
       return (
         <span key={index} className="sp-seat">
           {seatRow + seatNum}
@@ -97,11 +96,13 @@ const CheckoutForm = (props) => {
             </div>
             <div className="email checkout__form__item">
               <label htmlFor="email">E-Mail</label>
-              <input type="email" name="email" />
+              {/* <input type="email" name="email" /> */}
+              <span>string@gmail.com</span>
             </div>
             <div className="phone checkout__form__item">
               <label htmlFor="phone">Phone</label>
-              <input type="text" name="phone" />
+              {/* <input type="text" name="phone" /> */}
+              <span>0987654321</span>
             </div>
             <div className="voucher checkout__form__item">
               <div className="voucher-left">
