@@ -10,17 +10,15 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import {  Paper } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import Image from "../../assets/images/login/web-logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/actions/user.actions";
 import * as yup from "yup";
 import "./signUpContent.scss";
-
-
 
 function Copyright() {
   return (
@@ -70,14 +68,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- const signUpUserSchema = yup.object().shape({
+const signUpUserSchema = yup.object().shape({
   taiKhoan: yup.string().required("* Trường này không được bỏ trống."),
-  matKhau: yup.string().required("* Trường này không được bỏ trống.")
-  .matches(/([A-Z]+)/,"Mật khẩu phải có ít nhất 1 chữ in hoa."  )
-  .matches(/([0-9]+)/,"Mật khẩu phải có ít nhất 1 chữ số."  )
-  .matches(/([!@#$%^&*]+)/, "Mật khẩu phải có ít nhất 1 ký tự đặc biệt." )
-  .min(6, "Mật khẩu phải có ít nhất 6 ký tự.")
-  .max(12, "Mật khẩu tối đa là 12 ký tự."),
+  matKhau: yup
+    .string()
+    .required("* Trường này không được bỏ trống.")
+    .matches(/([A-Z]+)/, "Mật khẩu phải có ít nhất 1 chữ in hoa.")
+    .matches(/([0-9]+)/, "Mật khẩu phải có ít nhất 1 chữ số.")
+    .matches(/([!@#$%^&*]+)/, "Mật khẩu phải có ít nhất 1 ký tự đặc biệt.")
+    .min(6, "Mật khẩu phải có ít nhất 6 ký tự.")
+    .max(12, "Mật khẩu tối đa là 12 ký tự."),
   // xacNhanMatKhau: yup.string().required("* Trường này không được bỏ trống."),
   // .oneOf([yup.ref('matKhau'), null], "Mật khẩu không khớp."),
   hoTen: yup.string().required("* Trường này không được bỏ trống."),
@@ -95,20 +95,23 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUpContent() {
   const classes = useStyles();
   const dispatch = useDispatch();
-  
+
   const handleChangeConfirmPass = (e, values) => {
     // console.log(e.target.value)
     // console.log(e.target.name)
     // console.log(values)
     // if(name === xacNhanMatKhau) {}
-  }
+  };
+  const history = useHistory();
 
   return (
     <div className="signUp">
       <Container component="main" maxWidth="xs" className="signUpContent">
         <CssBaseline />
         <div className={classes.paper}>
-          <Paper className={classes.avatar}></Paper>
+          <NavLink to="/">
+            <Paper className={classes.avatar}></Paper>
+          </NavLink>
           <Typography component="h1" variant="h5">
             Đăng ký
           </Typography>
@@ -125,6 +128,7 @@ export default function SignUpContent() {
             validationSchema={signUpUserSchema}
             onSubmit={(initialValues) => {
               dispatch(register(initialValues));
+              history.push("/login");
             }}
           >
             {(formikProps) => (

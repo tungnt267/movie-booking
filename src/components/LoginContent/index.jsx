@@ -10,7 +10,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Image from "../../assets/images/login/web-logo.png";
 import * as yup from "yup";
@@ -21,7 +21,6 @@ import { Paper } from "@material-ui/core";
 
 import "./loginContent.scss";
 import Header from "../Header";
-
 
 function Copyright() {
   return (
@@ -67,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const singInUserSchema = yup.object().shape({
+const signInUserSchema = yup.object().shape({
   taiKhoan: yup.string().required("Trường này bắt buộc nhập."),
   matKhau: yup.string().required("Trường này bắt buộc nhập."),
 });
@@ -75,24 +74,28 @@ const singInUserSchema = yup.object().shape({
 const LoginContent = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <div className="signIn">
-      <Header></Header>
       <Container component="main" maxWidth="xs" className="signInContent">
         <CssBaseline />
         <div className={classes.paper}>
-          <Paper className={classes.avatar}></Paper>
+          <NavLink to="/">
+            <Paper className={classes.avatar}></Paper>
+          </NavLink>
           <Typography component="h1" variant="h5">
             Đăng nhập
           </Typography>
           <Formik
             initialValues={{ taiKhoan: "", matKhau: "" }}
-            validationSchema={singInUserSchema}
+            validationSchema={signInUserSchema}
             onSubmit={(initialValues) => {
               dispatch(login(initialValues));
-            }}>
-            {( formikProps ) => (
+              history.goBack();
+            }}
+          >
+            {(formikProps) => (
               <Form className={classes.form} noValidate>
                 <TextField
                   variant="outlined"
@@ -106,10 +109,10 @@ const LoginContent = () => {
                   onChange={formikProps.handleChange}
                 />
                 <ErrorMessage name="taiKhoan">
-                      {(msg) => (
-                        <div className="text-danger errorMessage">{msg} </div>
-                      )}
-                    </ErrorMessage>
+                  {(msg) => (
+                    <div className="text-danger errorMessage">{msg} </div>
+                  )}
+                </ErrorMessage>
 
                 <TextField
                   onChange={formikProps.handleChange}
@@ -124,10 +127,10 @@ const LoginContent = () => {
                   autoComplete="current-password"
                 />
                 <ErrorMessage name="matKhau">
-                      {(msg) => (
-                        <div className="text-danger errorMessage">{msg} </div>
-                      )}
-                    </ErrorMessage>
+                  {(msg) => (
+                    <div className="text-danger errorMessage">{msg} </div>
+                  )}
+                </ErrorMessage>
 
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
@@ -144,7 +147,9 @@ const LoginContent = () => {
                 </Button>
                 <Grid container>
                   <Grid item xs>
-                    <Link variant="body2">Quên mật khẩu?</Link>
+                    <NavLink to="/login" variant="body2">
+                      Quên mật khẩu?
+                    </NavLink>
                   </Grid>
                   <Grid item>
                     <NavLink to="/signup" variant="body2">

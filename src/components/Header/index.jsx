@@ -1,17 +1,16 @@
-import React  from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import NavbarExpanded from "./NavbarExpanded";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./header.scss";
 
-
 const Header = () => {
   const { credentials } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-  const handleLogin = () => {
-    
+  const handleLogout = () => {
+    localStorage.removeItem('credentials');
   };
+
   return (
     <div>
       <div id="header" className="header">
@@ -55,17 +54,21 @@ const Header = () => {
                 <div className="navbar__right__login">
                   <img src="../images/header/avatar.png" alt="avatar" />
                   {credentials ? (
-                      <div className="dropdown dropdownLogOut">
-                        <span 
-                        > Hi, {credentials.hoTen}</span>
-                        <div className="dropdown-content">
-                          <span  onClick={handleLogin}>Đăng xuất</span>
-                        </div>
-                      </div>
+                    <>
+                      <span className="login-item">
+                        {credentials.hoTen}
+                      </span>
+                      <button className="signup-item" onClick={handleLogout}>Đăng Xuất</button>
+                    </>
                   ) : (
-                    <NavLink to="/login" className="login">
-                      Đăng Nhập
-                    </NavLink>
+                    <>
+                      <NavLink to="/login" className="login-item">
+                        Đăng Nhập
+                      </NavLink>
+                      <NavLink to="/signup" className="signup-item">
+                        Đăng Ký
+                      </NavLink>
+                    </>
                   )}
                 </div>
                 {/* <div className="navbar__right__location dropdown d-none d-md-block">
