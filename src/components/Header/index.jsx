@@ -1,18 +1,16 @@
-import React, { memo } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import NavbarExpanded from "./NavbarExpanded";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import "./header.scss";
 
 const Header = () => {
   const { credentials } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-  const handleLogin = () => {};
+  const handleLogout = () => {
+    localStorage.removeItem("credentials");
+  };
 
-  // const callBack = useCallback(credentials, []);
-
-  console.log(123);
   return (
     <div>
       <div id="header" className="header">
@@ -63,9 +61,14 @@ const Header = () => {
                       </div>
                     </div>
                   ) : (
-                    <NavLink to="/login" className="login">
-                      Đăng Nhập
-                    </NavLink>
+                    <>
+                      <NavLink to="/login" className="login-item">
+                        Đăng Nhập
+                      </NavLink>
+                      <NavLink to="/signup" className="signup-item">
+                        Đăng Ký
+                      </NavLink>
+                    </>
                   )}
                 </div> */}
                 {/* <div className="navbar__right__location dropdown d-none d-md-block">

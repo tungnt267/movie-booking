@@ -1,7 +1,12 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 const NavbarExpanded = () => {
+  const { credentials } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const handleLogin = () => {};
+
   return (
     <div
       className="modal fade modal-header-expand"
@@ -19,9 +24,26 @@ const NavbarExpanded = () => {
                 src="../images/header/avatar.png"
                 alt="avatar"
               />
-              <NavLink to="/login" className="modal-title login-text">
+               {credentials ? (
+                    <>
+                      <span className="login-item">
+                        {credentials.hoTen}
+                      </span>
+                      <span className="signup-item" onClick={handleLogin}>Đăng Xuất</span>
+                    </>
+                  ) : (
+                    <>
+                      <NavLink to="/login" className="login-item">
+                        Đăng Nhập
+                      </NavLink>
+                      <NavLink to="/signup" className="signup-item">
+                        Đăng Ký
+                      </NavLink>
+                    </>
+                  )}
+              {/* <NavLink to="/login" className="modal-title login-text">
                 Đăng Nhập
-              </NavLink>
+              </NavLink> */}
               <button
                 type="button"
                 className="close"
