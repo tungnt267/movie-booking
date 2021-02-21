@@ -50,6 +50,8 @@ const FilmBlock = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(movieList);
+
   let currentTime = new Date();
 
   const convertDate = (dateTime) => {

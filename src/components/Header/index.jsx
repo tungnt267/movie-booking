@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link, NavLink } from "react-router-dom";
 import NavbarExpanded from "./NavbarExpanded";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,10 @@ const Header = () => {
   const { credentials } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleLogin = () => {};
+
+  // const callBack = useCallback(credentials, []);
+
+  console.log(123);
   return (
     <div>
       <div id="header" className="header">
@@ -49,7 +53,7 @@ const Header = () => {
                 </li>
               </ul>
               <div className="navbar__right">
-                <div className="navbar__right__login">
+                {/* <div className="navbar__right__login">
                   <img src="../images/header/avatar.png" alt="avatar" />
                   {credentials ? (
                     <div className="dropdown dropdownLogOut">
@@ -63,7 +67,7 @@ const Header = () => {
                       Đăng Nhập
                     </NavLink>
                   )}
-                </div>
+                </div> */}
                 {/* <div className="navbar__right__location dropdown d-none d-md-block">
                   <Link
                     to="/"
@@ -129,9 +133,9 @@ const Header = () => {
         </div>
       </div>
 
-      <NavbarExpanded />
+      {/* <NavbarExpanded /> */}
     </div>
   );
 };
 
-export default Header;
+export default React.memo(Header);

@@ -6,7 +6,6 @@ import DetailBottom from "../../components/DetailBottom";
 import DetailTop from "../../components/DetailTop";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import VideoModal from "../../components/VideoModal";
 import { getMovieDetailRequest } from "../../redux/actions/movie.action";
 
 const Detail = () => {

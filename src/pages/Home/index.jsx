@@ -17,12 +17,12 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Carousel />
-      <FilmBlock />
-      <MovieTime />
-      <News />
-      <Ads />
-      <Footer />
+      {/* <Carousel /> */}
+      {/* <FilmBlock /> */}
+      {/* <MovieTime /> */}
+      {/* <News /> */}
+      {/* <Ads /> */}
+      {/* <Footer /> */}
     </div>
   );
   // }
