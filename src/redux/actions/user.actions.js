@@ -15,14 +15,12 @@ export const register = (data) => {
   };
 };
 export const login = (user) => {
-  
   return (dispatch) => {
     userService
       .signIn(user)
       .then((res) => {
         dispatch(createAction(FETCH_CREDENTIALS, res.data));
-        localStorage.setItem("credentials", JSON.stringify(res.data))
-        // console.log(res);
+        localStorage.setItem("credentials", JSON.stringify(res.data));
       })
       .catch((err) => {
         console.log(err);

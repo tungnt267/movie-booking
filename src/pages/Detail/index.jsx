@@ -24,7 +24,7 @@ const Detail = () => {
   // } else {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <DetailTop movieDetail={movieDetail} />
       <DetailBottom movieDetail={movieDetail} />
       <Footer />

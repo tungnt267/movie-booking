@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import NavbarExpanded from "./NavbarExpanded";
 import { useSelector } from "react-redux";
@@ -51,13 +51,13 @@ const Header = () => {
                 </li>
               </ul>
               <div className="navbar__right">
-                {/* <div className="navbar__right__login">
+                <div className="navbar__right__login">
                   <img src="../images/header/avatar.png" alt="avatar" />
                   {credentials ? (
                     <div className="dropdown dropdownLogOut">
                       <span> Hi, {credentials.hoTen}</span>
                       <div className="dropdown-content">
-                        <span onClick={handleLogin}>Đăng xuất</span>
+                        <span onClick={handleLogout}>Đăng xuất</span>
                       </div>
                     </div>
                   ) : (
@@ -70,7 +70,7 @@ const Header = () => {
                       </NavLink>
                     </>
                   )}
-                </div> */}
+                </div>
                 {/* <div className="navbar__right__location dropdown d-none d-md-block">
                   <Link
                     to="/"
@@ -128,17 +128,16 @@ const Header = () => {
                       Cần Thơ
                     </Link>
                   </div>
-                </div>
-              </div> */}
+                </div> */}
               </div>
             </div>
           </nav>
         </div>
       </div>
 
-      {/* <NavbarExpanded /> */}
+      <NavbarExpanded />
     </div>
   );
 };
 
-export default React.memo(Header);
+export default Header;
