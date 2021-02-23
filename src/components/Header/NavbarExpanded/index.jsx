@@ -1,11 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
-const NavbarExpanded = () => {
+const NavbarExpanded = (props) => {
   const { credentials } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-  const handleLogin = () => {};
 
   return (
     <div
@@ -19,31 +17,26 @@ const NavbarExpanded = () => {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header side-nav__login">
-              <img
-                className="login-avatar"
-                src="../images/header/avatar.png"
-                alt="avatar"
-              />
-               {credentials ? (
-                    <>
-                      <span className="login-item">
-                        {credentials.hoTen}
-                      </span>
-                      <span className="signup-item" onClick={handleLogin}>Đăng Xuất</span>
-                    </>
-                  ) : (
-                    <>
-                      <NavLink to="/login" className="login-item">
-                        Đăng Nhập
-                      </NavLink>
-                      <NavLink to="/signup" className="signup-item">
-                        Đăng Ký
-                      </NavLink>
-                    </>
-                  )}
-              {/* <NavLink to="/login" className="modal-title login-text">
-                Đăng Nhập
-              </NavLink> */}
+              {props.isLogin ? (
+                <>
+                  <img src="../images/header/avatar.png" alt="avatar" />
+                  <div className="logout">
+                    <span className="user-name">{credentials?.taiKhoan}</span>
+                    <button className="btn-logout" onClick={props.handleLogout}>
+                      Đăng xuất
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <NavLink to="/login" className="login-item">
+                    Đăng nhập
+                  </NavLink>
+                  <NavLink to="/signup" className="signup-item">
+                    Đăng ký
+                  </NavLink>
+                </>
+              )}
               <button
                 type="button"
                 className="close"
@@ -72,114 +65,6 @@ const NavbarExpanded = () => {
               <Link to="/" className="side-nav__link">
                 Ứng dụng
               </Link>
-            </div>
-            {/* Button trigger modal */}
-            <button
-              type="button"
-              className="side-nav__link btn-location text-left"
-              data-toggle="modal"
-              data-target="#sideNavModal"
-            >
-              <span>Hồ Chí Minh</span>
-            </button>
-            {/* Modal */}
-            <div
-              className="modal fade modal-location"
-              id="sideNavModal"
-              role="dialog"
-              aria-labelledby="modelTitleId"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                  <div className="modal-body">
-                    <Link to="/" className="dropdown-item">
-                      Hồ Chí Minh
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hà Nội
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Đà Nẵng
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hải Phòng
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Biên Hòa
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Nha Trang
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Bình Dương
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Phan Thiết
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hạ Long
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Cần Thơ
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Vũng Tàu
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Quy Nhơn
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Huế
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Long Xuyên
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hồ Chí Minh
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hà Nội
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Đà Nẵng
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hải Phòng
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Biên Hòa
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Nha Trang
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Bình Dương
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Phan Thiết
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hạ Long
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Cần Thơ
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Vũng Tàu
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Quy Nhơn
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Huế
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Long Xuyên
-                    </Link>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

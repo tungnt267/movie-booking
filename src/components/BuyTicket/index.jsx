@@ -14,7 +14,7 @@ const BuyTicket = () => {
   const dispatch = useDispatch();
 
   let [values, setValues] = useState({
-    filmSelect: null,
+    filmSelect: 1315,
     cinemaSelect: "",
     dateSelect: "",
     hourSelect: "",

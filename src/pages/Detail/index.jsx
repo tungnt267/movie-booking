@@ -1,4 +1,4 @@
-// import { CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -18,13 +18,14 @@ const Detail = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const { isLoading } = useSelector((state) => state.loading);
+  const { isLoading } = useSelector((state) => state.loading);
+  console.log(isLoading);
   // if (isLoading) {
   //   return <CircularProgress />;
   // } else {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <DetailTop movieDetail={movieDetail} />
       <DetailBottom movieDetail={movieDetail} />
       <Footer />

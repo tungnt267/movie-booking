@@ -13,11 +13,11 @@ const VideoModal = (props) => {
                   <img src="../images/videoModal/close.png" alt="close" />
                 </button>
                 <iframe
-                  src={item.trailer}
+                  src={item.trailer.replace("watch?v=", "embed/")}
                   frameBorder={0}
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  title={index}
+                  title="video"
                 />
               </div>
             </div>
@@ -29,10 +29,7 @@ const VideoModal = (props) => {
 
   return (
     <div className="tix-modal">
-      <div className="container">
-        {/* The Modal Carousel Item 1 */}
-        {renderModal()}
-      </div>
+      <div className="container">{renderModal()}</div>
     </div>
   );
 };

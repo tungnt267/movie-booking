@@ -16,10 +16,10 @@ const Home = () => {
   // } else {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       {/* <Carousel /> */}
       {/* <FilmBlock /> */}
-      {/* <MovieTime /> */}
+      <MovieTime />
       {/* <News /> */}
       {/* <Ads /> */}
       {/* <Footer /> */}

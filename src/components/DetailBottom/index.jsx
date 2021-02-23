@@ -49,7 +49,7 @@ const DetailBottom = (props) => {
                       <p className="content-title">Ngày công chiếu</p>
                       <p className="content-info ng-binding">
                         {format(
-                          "dd.mm.yyyy",
+                          "dd.MM.yyyy",
                           new Date(props.movieDetail?.ngayKhoiChieu)
                         )}
                       </p>

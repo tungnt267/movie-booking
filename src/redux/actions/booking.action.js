@@ -19,13 +19,11 @@ export const getBookingListRequest = (idBooking) => {
       url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${idBooking}`,
     })
       .then((res) => {
-        // console.log(res);
         dispatch(getBookingListSuccess(res.data));
         // Stop Loading
         dispatch(stopLoading());
       })
       .catch((err) => {
-        // console.log(err);
         dispatch(getBookingListFailed(err));
         // Stop Loading
         dispatch(stopLoading());
@@ -85,26 +83,11 @@ export const postBookingRequest = (maLichChieu, danhSachVe) => {
         });
       }
     } catch (error) {
-      console.log(error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Something went wrong!",
-        // footer: "<a href>Why do I have this issue?</a>",
       });
-      // window.location = `/booking/${maLichChieu}`;
-      // Swal.fire({
-      //   icon: "error",
-      //   title: "Oops...",
-      //   text: "Something went wrong!",
-      // }).then(function () {
-      //   window.location = `/booking/${maLichChieu}`
-      // });
-      // Swal.fire({
-      //   title: 'Auto close alert!',
-      //   text: 'I will close in 2 seconds.',
-      //   timer: 2000
-      // })
     }
   };
 };
