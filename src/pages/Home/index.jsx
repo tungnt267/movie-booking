@@ -43,7 +43,7 @@ const Home = () => {
         filmId={filmId}
         setFilmId={setFilmId}
       />
-      {/* <News /> */}
+      <News />
       <Ads />
       <Footer />
     </div>
