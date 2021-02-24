@@ -1,7 +1,6 @@
 import {
   GET_CINEMA_GROUP_SUCCESS,
   GET_CINEMA_LIST_SUCCESS,
-  GET_SHOW_TIME_INFO_SUCCESS,
   GET_SHOW_TIME_SUCCESS,
 } from "../constants/cinema.constant";
 
@@ -9,7 +8,6 @@ const initialState = {
   cinemaList: null,
   cinemaGroup: null,
   showTime: null,
-  showTimeInfo: null,
 };
 
 const cinemaReducer = (state = initialState, action) => {
@@ -23,9 +21,6 @@ const cinemaReducer = (state = initialState, action) => {
     }
     case GET_SHOW_TIME_SUCCESS: {
       return { ...state, showTime: payload };
-    }
-    case GET_SHOW_TIME_INFO_SUCCESS: {
-      return { ...state, showTimeInfo: payload };
     }
     default:
       return state;

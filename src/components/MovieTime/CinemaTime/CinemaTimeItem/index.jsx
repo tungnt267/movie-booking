@@ -1,27 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getShowTimeRequest } from "../../../../redux/actions/cinema.action";
+import React from "react";
 import FilmShowTime from "./FilmShowTime";
 
 const CinemaTimeItem = (props) => {
-  const { showTime } = useSelector((state) => state.cinema);
-
-  let [filmId, setFilmId] = useState();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getShowTimeRequest(props.cinemaId));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const renderShowTimeList = () => {
-    let filterArr = showTime
-      ?.map((item) => item.lstCumRap)
-      ?.flat()
-      .filter((item) => item.maCumRap === props.cinemaGroupId)
-      .map((item) => item.danhSachPhim)
-      .flat();
-    return filterArr?.map((film, index) => {
+    return props.filterShowTime?.map((film, index) => {
       return (
         <div key={index} className="time-list">
           <a
@@ -29,7 +11,7 @@ const CinemaTimeItem = (props) => {
             data-toggle="collapse"
             href={`#id${film.maPhim}`}
             onClick={() => {
-              setFilmId(film.maPhim);
+              props.setFilmId(film.maPhim);
             }}
           >
             <div className="time__content">
@@ -55,8 +37,8 @@ const CinemaTimeItem = (props) => {
             <div className="time__content__hour">
               <div className="row m-0">
                 <FilmShowTime
-                  lstLichChieuTheoFilm={film.lstLichChieuTheoFilm}
-                  filmId={filmId}
+                  lstLichChieuTheoPhim={film.lstLichChieuTheoPhim}
+                  filmId={props.filmId}
                   cinemaId={props.cinemaId}
                 />
               </div>
@@ -67,7 +49,24 @@ const CinemaTimeItem = (props) => {
     });
   };
 
-  return <div className="flex-column">{renderShowTimeList()}</div>;
+  return (
+    <div className="flex-column">
+      {props.filterShowTime.length > 0 ? (
+        renderShowTimeList()
+      ) : (
+        <div
+          style={{
+            color: "#0c5460",
+            background: "#d1ecf1",
+            borderColor: "#bee5eb",
+            padding: ".75rem 1.25rem",
+          }}
+        >
+          Hiện không có lịch chiếu trên hệ thống rạp này
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default CinemaTimeItem;

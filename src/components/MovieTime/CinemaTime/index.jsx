@@ -4,6 +4,7 @@ import CinemaTimeItem from "./CinemaTimeItem";
 
 const CinemaTime = (props) => {
   const { cinemaGroup } = useSelector((state) => state.cinema);
+
   const renderShowTime = () => {
     const unique = [];
     cinemaGroup?.map((x) =>
@@ -11,6 +12,7 @@ const CinemaTime = (props) => {
         ? null
         : unique.push(x)
     );
+
     return unique?.map((item, index) => {
       return (
         <div
@@ -22,6 +24,9 @@ const CinemaTime = (props) => {
             maCumRap={item.maCumRap}
             cinemaId={props.cinemaId}
             cinemaGroupId={props.cinemaGroupId}
+            filterShowTime={props.filterShowTime}
+            filmId={props.filmId}
+            setFilmId={props.setFilmId}
           />
         </div>
       );

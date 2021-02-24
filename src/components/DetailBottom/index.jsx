@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MovieTime from "../MovieTime";
 import format from "date-format";
 import "./detailBottom.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getShowTimeRequest } from "../../redux/actions/cinema.action";
 
 const DetailBottom = (props) => {
+  const { showTime } = useSelector((state) => state.cinema);
+  let [cinemaId, setIdCinema] = useState("BHDStar");
+  let [cinemaGroupId, setIdCinemaGroup] = useState("bhd-star-cineplex-bitexco");
+  let [filmId, setFilmId] = useState(props.movieDetailId);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getShowTimeRequest(cinemaId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  let filterShowTime = showTime
+    ?.map((item) => item.lstCumRap)
+    ?.flat()
+    .filter((item) => item.maCumRap === cinemaGroupId)
+    .map((item) => item.danhSachPhim)
+    .flat()
+    .filter((item) => item.maPhim === +props.movieDetailId);
+
   return (
     <section className="detail-bottom" id="toShowTime">
       <div className="detail-bottom__info container">
@@ -34,7 +56,15 @@ const DetailBottom = (props) => {
               role="tabpanel"
               aria-labelledby="nav-home-tab"
             >
-              <MovieTime />
+              <MovieTime
+                filterShowTime={filterShowTime}
+                cinemaGroupId={cinemaGroupId}
+                setIdCinemaGroup={setIdCinemaGroup}
+                cinemaId={cinemaId}
+                setIdCinema={setIdCinema}
+                filmId={filmId}
+                setFilmId={setFilmId}
+              />
             </div>
             <div
               className="tab-pane fade "
