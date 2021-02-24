@@ -31,8 +31,8 @@ const Home = () => {
 
   return (
     <div>
-      {/* <Header /> */}
-      {/* <Carousel /> */}
+      <Header />
+      <Carousel />
       <FilmBlock />
       <MovieTime
         cinemaId={cinemaId}
@@ -43,12 +43,11 @@ const Home = () => {
         filmId={filmId}
         setFilmId={setFilmId}
       />
-      <News />
+      {/* <News /> */}
       <Ads />
       <Footer />
     </div>
   );
-  // }
 };
 
 export default Home;
