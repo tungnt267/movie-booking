@@ -204,7 +204,7 @@ const FilmBlock = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" data-toggle="tab" href="#comingSoon">
+              <a className="nav-link" data-toggle= "tab" href="#comingSoon">
                 Sắp Chiếu
               </a>
             </li>
