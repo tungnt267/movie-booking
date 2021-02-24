@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import { getMovieListRequest } from "../../redux/actions/movie.action";
 import VideoModal from "../VideoModal";
@@ -12,7 +12,7 @@ const FilmBlock = () => {
     slidesToShow: 4,
     slidesToScroll: 4,
     arrows: true,
-    infinite: true,
+    infinite: false,
     rows: 2,
     responsive: [
       {
@@ -50,8 +50,6 @@ const FilmBlock = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(movieList);
-
   let currentTime = new Date();
 
   const convertDate = (dateTime) => {
@@ -60,7 +58,14 @@ const FilmBlock = () => {
   };
 
   const renderNowShowing = () => {
-    let nowShowingArr = movieList?.filter(
+    const unique = [];
+    movieList?.map((x) =>
+      unique.filter((a) => a.tenPhim === x.tenPhim).length > 0
+        ? null
+        : unique.push(x)
+    );
+
+    let nowShowingArr = unique?.filter(
       (movie) => convertDate(movie.ngayKhoiChieu) <= currentTime.getTime()
     );
     return nowShowingArr?.map((movie, index) => {
@@ -104,13 +109,13 @@ const FilmBlock = () => {
               </h4>
               <p className="film__time">103 phút</p>
             </div>
-            <Link
+            <NavLink
               to={`/detail/${movie.maPhim}`}
               target="_blank"
               className="btn-buy-now"
             >
               Mua vé
-            </Link>
+            </NavLink>
           </div>
         </div>
       );
@@ -118,7 +123,14 @@ const FilmBlock = () => {
   };
 
   const renderComingSoon = () => {
-    let comingSoonArr = movieList?.filter(
+    const unique = [];
+    movieList?.map((x) =>
+      unique.filter((a) => a.tenPhim === x.tenPhim).length > 0
+        ? null
+        : unique.push(x)
+    );
+
+    let comingSoonArr = unique?.filter(
       (movie) => convertDate(movie.ngayKhoiChieu) > currentTime.getTime()
     );
 
@@ -163,13 +175,13 @@ const FilmBlock = () => {
               </h4>
               <p className="film__time">103 phút</p>
             </div>
-            <Link
+            <NavLink
               to={`/detail/${movie.maPhim}`}
               target="_blank"
               className="btn-buy-now"
             >
               Mua vé
-            </Link>
+            </NavLink>
           </div>
         </div>
       );

@@ -22,7 +22,7 @@ const Booking = () => {
 
   return (
     <>
-      <Header className="header--config" />
+      <Header />
       <section className="checkout">
         <div className="container-fluid container-config__x-small p-0">
           <div className="row row-checkout mr-0" style={{ height: "93.5vh" }}>

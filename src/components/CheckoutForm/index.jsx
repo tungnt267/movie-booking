@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { postBookingRequest } from "../../redux/actions/booking.action";
+import Swal from "sweetalert2";
 import "./checkoutForm.scss";
 
 const CheckoutForm = (props) => {
@@ -8,11 +9,19 @@ const CheckoutForm = (props) => {
   const dispatch = useDispatch();
 
   const handleBooking = () => {
-    let danhSachVe = props.danhSachChon.map((ghe) => ({
-      maGhe: ghe.maGhe,
-      giaVe: ghe.giaVe,
-    }));
-    dispatch(postBookingRequest(props.idBooking, danhSachVe));
+    if (localStorage.getItem("credentials") !== null) {
+      let danhSachVe = props.danhSachChon.map((ghe) => ({
+        maGhe: ghe.maGhe,
+        giaVe: ghe.giaVe,
+      }));
+      dispatch(postBookingRequest(props.idBooking, danhSachVe));
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Bạn không thể đặt vé trước khi đăng nhập.",
+        text: "Vui lòng đăng nhập.",
+      });
+    }
   };
 
   const renderDanhSachGhe = () => {
@@ -109,11 +118,11 @@ const CheckoutForm = (props) => {
             </div>
             <div className="email checkout__form__item">
               <label htmlFor="email">E-Mail</label>
-              <span>{user.email}</span>
+              <span>{user?.email}</span>
             </div>
             <div className="phone checkout__form__item">
               <label htmlFor="phone">Phone</label>
-              <span>{user.soDT}</span>
+              <span>{user?.soDT}</span>
             </div>
             <div className="voucher checkout__form__item">
               <div className="voucher-left">

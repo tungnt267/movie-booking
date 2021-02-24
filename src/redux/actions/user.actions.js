@@ -1,5 +1,6 @@
 import { createAction } from ".";
 import { userService } from "../../services";
+import Swal from "sweetalert2";
 import { FETCH_CREDENTIALS } from "../constants/user.constant";
 
 export const register = (data) => {
@@ -14,18 +15,22 @@ export const register = (data) => {
       });
   };
 };
+
 export const login = (user) => {
-  
   return (dispatch) => {
     userService
       .signIn(user)
       .then((res) => {
         dispatch(createAction(FETCH_CREDENTIALS, res.data));
-        localStorage.setItem("credentials", JSON.stringify(res.data))
-        // console.log(res);
+        localStorage.setItem("credentials", JSON.stringify(res.data));
+        window.history.go(-1);
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Tài khoản hoặc mật khẩu không hợp lệ!",
+          text: "Vui lòng nhập lại.",
+        });
       });
   };
 };

@@ -4,11 +4,18 @@ import NavbarExpanded from "./NavbarExpanded";
 import { useSelector } from "react-redux";
 
 import "./header.scss";
+import { useState } from "react";
 
 const Header = () => {
-  const { credentials } = useSelector((state) => state.user);
+  let { credentials } = useSelector((state) => state.user);
+
+  let [isLogin, setIsLogin] = useState(
+    localStorage.getItem("credentials") !== null
+  );
+
   const handleLogout = () => {
     localStorage.removeItem("credentials");
+    setIsLogin(false);
   };
 
   return (
@@ -51,94 +58,43 @@ const Header = () => {
                 </li>
               </ul>
               <div className="navbar__right">
-                {/* <div className="navbar__right__login">
-                  <img src="../images/header/avatar.png" alt="avatar" />
-                  {credentials ? (
-                    <div className="dropdown dropdownLogOut">
-                      <span> Hi, {credentials.hoTen}</span>
-                      <div className="dropdown-content">
-                        <span onClick={handleLogin}>Đăng xuất</span>
+                <div className="navbar__right__login">
+                  {isLogin ? (
+                    <>
+                      <img src="../images/header/avatar.png" alt="avatar" />
+                      <div className="logout">
+                        <span className="user-name">
+                          {credentials?.taiKhoan}
+                        </span>
+                        <button className="btn-logout" onClick={handleLogout}>
+                          Đăng xuất
+                        </button>
                       </div>
-                    </div>
+                    </>
                   ) : (
                     <>
                       <NavLink to="/login" className="login-item">
-                        Đăng Nhập
+                        Đăng nhập
                       </NavLink>
                       <NavLink to="/signup" className="signup-item">
-                        Đăng Ký
+                        Đăng ký
                       </NavLink>
                     </>
                   )}
-                </div> */}
-                {/* <div className="navbar__right__location dropdown d-none d-md-block">
-                  <Link
-                    to="/"
-                    className="nav-link dropdown-toggle"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <img
-                      className="location-icon"
-                      src="../images/header/location-header.png"
-                      alt="location-header"
-                    />
-                    <span>Hồ Chí Minh</span>
-                    <img
-                      className="dropdown-icon"
-                      src="../images/header/dropdown-icon.png"
-                      alt="dropdown-icon"
-                    />
-                  </Link>
-                  <div
-                    className="dropdown-menu"
-                    aria-labelledby="navbarDropdown"
-                  >
-                    <Link to="/" className="dropdown-item">
-                      Hồ Chí Minh
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hà Nội
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Đà Nẵng
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hải Phòng
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Biên Hòa
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Nha Trang
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Bình Dương
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Phan Thiết
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Hạ Long
-                    </Link>
-                    <Link to="/" className="dropdown-item">
-                      Cần Thơ
-                    </Link>
-                  </div>
                 </div>
-              </div> */}
               </div>
             </div>
           </nav>
         </div>
       </div>
 
-      {/* <NavbarExpanded /> */}
+      <NavbarExpanded
+        handleLogout={handleLogout}
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+      />
     </div>
   );
 };
 
-export default React.memo(Header);
+export default Header;

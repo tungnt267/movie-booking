@@ -20,7 +20,7 @@ const Home = () => {
       {/* <Carousel /> */}
       {/* <FilmBlock /> */}
       {/* <MovieTime /> */}
-      {/* <News /> */}
+      <News />
       {/* <Ads /> */}
       {/* <Footer /> */}
     </div>

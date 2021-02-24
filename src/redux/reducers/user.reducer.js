@@ -8,8 +8,7 @@ const userReducer = (state = initialState, action) => {
   let { type, payload } = action;
   switch (type) {
     case FETCH_CREDENTIALS: {
-      state.credentials = payload;
-      return { ...state };
+      return { ...state, credentials: payload };
     }
     default:
       return state;

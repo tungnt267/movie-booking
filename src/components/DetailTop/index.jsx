@@ -43,7 +43,7 @@ const DetailTop = (props) => {
               <div>
                 <span className="detail-info1">
                   {format(
-                    "dd.mm.yyyy",
+                    "dd.MM.yyyy",
                     new Date(props.movieDetail?.ngayKhoiChieu)
                   )}
                 </span>
