@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import format from "date-format";
-import { getShowTimeInfoRequest } from "../../../../../redux/actions/cinema.action";
+import { getMovieDetailRequest } from "../../../../../redux/actions/movie.action";
 
 const FilmShowTime = (props) => {
-  const { showTimeInfo } = useSelector((state) => state.cinema);
   const dispatch = useDispatch();
+  const { movieDetail } = useSelector((state) => state.movie);
 
   useEffect(() => {
-    dispatch(getShowTimeInfoRequest(props.filmId));
+    dispatch(getMovieDetailRequest(props.filmId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.filmId]);
+  }, []);
 
   const hmsToMS = (hms) => {
     let a = hms.split(":");
@@ -19,7 +19,7 @@ const FilmShowTime = (props) => {
     return seconds * 1000;
   };
 
-  function msToHMS(ms) {
+  const msToHMS = (ms) => {
     // 1- Convert to seconds:
     let seconds = ms / 1000;
     // 2- Extract hours:
@@ -30,18 +30,20 @@ const FilmShowTime = (props) => {
     // 4- Keep only seconds not extracted to minutes:
     seconds = seconds % 60;
     return minutes >= 10 ? hours + ":" + minutes : hours + ":0" + minutes;
-  }
+  };
+
+  const thoiLuong = [];
+  movieDetail?.lichChieu
+    .map((item) => item.thoiLuong)
+    ?.map((x) =>
+      thoiLuong.filter((a) => a.thoiLuong === x.thoiLuong).length > 0
+        ? null
+        : thoiLuong.push(x)
+    );
 
   const renderFilmShowTime = () => {
-    let arr = showTimeInfo?.heThongRapChieu
-      .filter((heThongRap) => heThongRap.maHeThongRap === props.cinemaId)
-      .map((cumRap) => cumRap.cumRapChieu)
-      .flat()
-      .map((lichChieu) => lichChieu.lichChieuPhim)
-      .flat();
-
     const unique = [];
-    arr?.map((x) =>
+    props.lstLichChieuTheoPhim?.map((x) =>
       unique.filter(
         (a) =>
           a.ngayChieuGioChieu.split("T")[1] ===
@@ -65,7 +67,7 @@ const FilmShowTime = (props) => {
             ~{" "}
             {msToHMS(
               hmsToMS(showTime.ngayChieuGioChieu.split("T")[1]) +
-                showTime.thoiLuong * 60000
+                thoiLuong[0] * 60000
             )}
           </Link>
         </div>

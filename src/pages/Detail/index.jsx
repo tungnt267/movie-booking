@@ -1,4 +1,3 @@
-import { CircularProgress } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -10,24 +9,19 @@ import { getMovieDetailRequest } from "../../redux/actions/movie.action";
 
 const Detail = () => {
   const dispatch = useDispatch();
-  const { id } = useParams();
   let { movieDetail } = useSelector((state) => state.movie);
+  const { id } = useParams();
 
   useEffect(function () {
     dispatch(getMovieDetailRequest(id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { isLoading } = useSelector((state) => state.loading);
-  console.log(isLoading);
-  // if (isLoading) {
-  //   return <CircularProgress />;
-  // } else {
   return (
     <div>
       <Header />
       <DetailTop movieDetail={movieDetail} />
-      <DetailBottom movieDetail={movieDetail} />
+      <DetailBottom movieDetailId={id} movieDetail={movieDetail} />
       <Footer />
     </div>
   );

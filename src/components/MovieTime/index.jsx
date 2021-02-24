@@ -1,23 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import CinemaAddress from "./CinemaAddress";
 import CinemaLogo from "./CinemaLogo";
 import CinemaTime from "./CinemaTime";
 import "./movieTime.scss";
 
-const MovieTime = () => {
-  let [cinemaId, setIdCinema] = useState("BHDStar");
-  let [cinemaGroupId, setIdCinemaGroup] = useState("bhd-star-cineplex-bitexco");
+const MovieTime = (props) => {
   return (
     <div className="movie-time">
       <div className="movie-time__bg" />
       <div className="movie-time__content">
-        <CinemaLogo cinemaId={cinemaId} setIdCinema={setIdCinema} />
+        <CinemaLogo cinemaId={props.cinemaId} setIdCinema={props.setIdCinema} />
         <CinemaAddress
-          cinemaGroupId={cinemaGroupId}
-          setIdCinemaGroup={setIdCinemaGroup}
-          cinemaId={cinemaId}
+          cinemaGroupId={props.cinemaGroupId}
+          setIdCinemaGroup={props.setIdCinemaGroup}
+          cinemaId={props.cinemaId}
         />
-        <CinemaTime cinemaId={cinemaId} cinemaGroupId={cinemaGroupId} />
+        <CinemaTime
+          cinemaId={props.cinemaId}
+          cinemaGroupId={props.cinemaGroupId}
+          filterShowTime={props.filterShowTime}
+          filmId={props.filmId}
+          setFilmId={props.setFilmId}
+        />
       </div>
     </div>
   );
