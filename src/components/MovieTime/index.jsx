@@ -6,7 +6,7 @@ import "./movieTime.scss";
 
 const MovieTime = (props) => {
   return (
-    <div className="movie-time">
+    <div className="movie-time" id="movieTime">
       <div className="movie-time__bg" />
       <div className="movie-time__content">
         <CinemaLogo cinemaId={props.cinemaId} setIdCinema={props.setIdCinema} />

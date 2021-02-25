@@ -628,7 +628,7 @@ const News = () => {
     }
   };
   return (
-    <div className="news">
+    <div className="news" id="news">
       <div className="news__tab film-block__tab">
         <ul className="nav nav-tabs" id="myTab" role="tablist">
           <li className="nav-item">

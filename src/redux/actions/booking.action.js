@@ -85,8 +85,8 @@ export const postBookingRequest = (maLichChieu, danhSachVe) => {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
+        title: "Đã có lỗi xảy ra.",
+        text: "Vui lòng đặt vé lại.",
       });
     }
   };

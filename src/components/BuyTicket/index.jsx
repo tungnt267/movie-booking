@@ -13,8 +13,9 @@ const BuyTicket = () => {
   const { movieList, movieDetail } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
 
+  let [loadingCinema, setLoadingCinema] = useState(false);
   let [values, setValues] = useState({
-    filmSelect: 1315,
+    filmSelect: 1314,
     cinemaSelect: "",
     dateSelect: "",
     hourSelect: "",
@@ -60,7 +61,7 @@ const BuyTicket = () => {
   };
 
   const renderMovieCinema = () => {
-    if (values.filmSelect) {
+    if (+values.filmSelect !== 1314) {
       const unique = [];
       movieDetail?.lichChieu.map((x) =>
         unique.filter((a) => a.maRap === x.maRap).length > 0
@@ -76,7 +77,7 @@ const BuyTicket = () => {
       } else {
         return unique.map((showTime, index) => {
           return (
-            <option key={index} value={showTime.thongTinRap.maHeThongRap}>
+            <option key={index} value={showTime.thongTinRap.maRap}>
               {showTime.thongTinRap.tenCumRap} - {showTime.thongTinRap.tenRap}
             </option>
           );
@@ -93,8 +94,12 @@ const BuyTicket = () => {
 
   const renderMovieDate = () => {
     if (values.filmSelect && values.cinemaSelect) {
+      const movieDateArr = movieDetail?.lichChieu.filter(
+        (item) => item.maRap === +values.cinemaSelect
+      );
+
       const unique = [];
-      movieDetail?.lichChieu.map((x) =>
+      movieDateArr?.map((x) =>
         unique.filter(
           (a) =>
             a.ngayChieuGioChieu.split("T")[0] ===
@@ -106,7 +111,7 @@ const BuyTicket = () => {
       return unique.map((showTime, index) => {
         return (
           <option key={index} value={showTime.ngayChieuGioChieu}>
-            {format("dd/mm/yyyy", new Date(showTime.ngayChieuGioChieu))}
+            {format("dd/MM/yyyy", new Date(showTime.ngayChieuGioChieu))}
           </option>
         );
       });
@@ -121,8 +126,15 @@ const BuyTicket = () => {
 
   const renderMovieHour = () => {
     if (values.filmSelect && values.cinemaSelect && values.dateSelect) {
+      const movieHourArr = movieDetail?.lichChieu.filter(
+        (item) =>
+          item.maRap === +values.cinemaSelect &&
+          item.ngayChieuGioChieu.split("T")[0] ===
+            values.dateSelect.split("T")[0]
+      );
+
       const unique = [];
-      movieDetail?.lichChieu.map((x) =>
+      movieHourArr?.map((x) =>
         unique.filter(
           (a) =>
             a.ngayChieuGioChieu.split("T")[1] ===
@@ -168,7 +180,13 @@ const BuyTicket = () => {
         <select
           className="select-menu"
           name="filmSelect"
-          onChange={handleChange}
+          onChange={(e) => {
+            setLoadingCinema(true);
+            setValues({ ...values, [e.target.name]: e.target.value });
+            setTimeout(() => {
+              setLoadingCinema(false);
+            }, 3000);
+          }}
         >
           <option value="film" hidden>
             Phim
@@ -177,16 +195,24 @@ const BuyTicket = () => {
         </select>
       </div>
       <div className="buy-ticket__cinema buy-ticket__item">
-        <select
-          className="select-menu"
-          name="cinemaSelect"
-          onChange={handleChange}
-        >
-          <option value="cinema" hidden>
-            Rạp
-          </option>
-          {renderMovieCinema()}
-        </select>
+        {loadingCinema ? (
+          <select className="select-menu" name="cinemaSelect" disabled>
+            <option value="cinema" hidden>
+              Đang tìm rạp...
+            </option>
+          </select>
+        ) : (
+          <select
+            className="select-menu"
+            name="cinemaSelect"
+            onChange={handleChange}
+          >
+            <option value="cinema" hidden>
+              Rạp
+            </option>
+            {renderMovieCinema()}
+          </select>
+        )}
       </div>
       <div className="buy-ticket__date buy-ticket__item">
         <select
@@ -221,7 +247,17 @@ const BuyTicket = () => {
             <button
               className="btn btn-buy-ticket"
               onClick={() => {
-                history.push(`/booking/${movieDetail?.biDanh}`);
+                const idLichChieu = movieDetail?.lichChieu
+                  .filter(
+                    (item) =>
+                      item.maRap === +values.cinemaSelect &&
+                      item.ngayChieuGioChieu.split("T")[0] ===
+                        values.dateSelect.split("T")[0] &&
+                      item.ngayChieuGioChieu.split("T")[1] ===
+                        values.hourSelect.split("T")[1]
+                  )
+                  .map((item) => item.maLichChieu)[0];
+                history.push(`/booking/${idLichChieu}`);
               }}
             >
               MUA VÉ NGAY

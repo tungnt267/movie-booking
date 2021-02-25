@@ -52,7 +52,7 @@ const Ads = () => {
     });
   };
   return (
-    <div className="app">
+    <div className="app" id="app">
       <div className="app__content container">
         <div className="row">
           <div className="col-md-6">

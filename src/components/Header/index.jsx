@@ -37,24 +37,24 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="navbarTix">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link to="/" className="nav-link">
+                  <a href="#filmBlock" className="nav-link">
                     Lịch Chiếu
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <Link to="/" className="nav-link">
+                  <a href="#movieTime" className="nav-link">
                     Cụm rạp
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <Link to="/" className="nav-link">
+                  <a href="#news" className="nav-link">
                     Tin Tức
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <Link to="/" className="nav-link">
+                  <a href="#app" className="nav-link">
                     Ứng dụng
-                  </Link>
+                  </a>
                 </li>
               </ul>
               <div className="navbar__right">

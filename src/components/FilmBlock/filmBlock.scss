@@ -1,263 +1,285 @@
-@import '../../styles/styles.scss';
+@import "../../styles/styles.scss";
 
 .film-block {
-    padding-top: spacing(7.5);
-    max-width: 940px;
-    margin: auto;
+  padding-top: spacing(7.5);
+  max-width: 940px;
+  margin: auto;
 
-    &__tab {
-        .nav-tabs {
-            justify-content: center;
-            border: none;
-            margin-bottom: spacing(3);
+  &__tab {
+    .nav-tabs {
+      justify-content: center;
+      border: none;
+      margin-bottom: spacing(3);
 
-            .nav-item {
-                .nav-link {
-                    @include text(getColor("black"), getFz("h6"), getFw("regular"));
-                    border: none;
-                    line-height: 24px;
-                    height: 24px;
-                    transition: all 0.2s;
-                    -webkit-transition: all 0.2s;
-                    -moz-transition: all 0.2s;
-                    -ms-transition: all 0.2s;
-                    -o-transition: all 0.2s;
+      .nav-item {
+        .nav-link {
+          @include text(getColor("black"), getFz("h6"), getFw("regular"));
+          border: none;
+          line-height: 24px;
+          height: 24px;
+          transition: all 0.2s;
+          -webkit-transition: all 0.2s;
+          -moz-transition: all 0.2s;
+          -ms-transition: all 0.2s;
+          -o-transition: all 0.2s;
 
-                    &:hover {
-                        font-size: getFz("h5");
-                    }
-                }
-
-                .nav-link.active {
-                    @include text(getColor("primary"), getFz("h5"), getFw("regular"));
-                    cursor: default;
-                }
-            }
+          &:hover {
+            font-size: getFz("h5");
+          }
         }
 
-        .tab-content {
-            .slick-arrow{
-                top: 48%;
-                z-index: 1;
-                &::before {
-                  font-size:50px;
-                  color: getBg('black');
-                }
-              }
-    
-              .slick-prev {
-                left: -60px;            
-              }
-    
-              .slick-next {
-                right: -30px;            
-              }
-              
-            .film-block__item {
-                padding: spacing(2, 0.8);
-                padding-bottom: 0;
-
-                .card {
-                    padding-bottom: 0;
-                    margin-bottom: spacing(2.5);
-                    cursor: pointer;
-                    border: none;
-
-                    .film__rating {
-                        z-index: 1;
-                        @include text(getColor("white"), getFz("body1"), getFw("regular"));
-                        background-color: rgba(12, 27, 54, .8);
-                        border: 1px solid getBg("film_star");
-                        border-radius: 4px;
-                        padding: spacing(0.2);
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        width: 54px;
-                        text-align: center;
-                        line-height: 1.1;
-
-                        .rating__text {
-                            margin: 0;
-                            text-align: center;
-                        }
-
-                        .rating__star {
-                            margin: 0;
-                            display: flex;
-                            justify-content: center;
-                            padding: spacing(0.5);
-
-                            img {
-                                border: 0;
-                                max-width: 8px;
-                                width: 100%;
-                            }
-                        }
-                    }
-                    
-                    .film__thumbnail {
-                        position: relative;
-                        border-radius: 4px;
-                        padding-top: 145%;
-                        padding-bottom: spacing(1);
-                        background-size: cover;
-                        -webkit-border-radius: 4px;
-                        -moz-border-radius: 4px;
-                        -ms-border-radius: 4px;
-                        -o-border-radius: 4px;
-                        margin-bottom: spacing(1);
-                    }
-
-                    .card-body {
-                        padding: 0;
-                        height: 50px;
-
-                        .film__name {
-                            margin: 0;
-                            @include text(getColor("black"), getFz("body1"), getFw("regular"));
-
-
-                            .film__name__header {
-                                background-color: getBg("primary");
-                                @include text(getColor("white"), getFz("body2"), getFw("regular"));
-                                padding: spacing(0, 0.5);
-                                text-align: center;
-                                display: inline-block;
-                                margin-right: spacing(0.8);
-                                border-radius: 4px;
-                                -webkit-border-radius: 4px;
-                                -moz-border-radius: 4px;
-                                -ms-border-radius: 4px;
-                                -o-border-radius: 4px;
-                            }
-                        }
-
-                        .film__time {
-                            margin-top: spacing(0.8);
-                            margin-bottom: spacing(1.5);
-                            @include text(getColor("black_1"), getFz("subtitle1"), getFw("regular"));
-                        }
-                    }
-
-                    .film__overlay {
-                        opacity: 0;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: linear-gradient(to top, #000, transparent 100%);
-                        transition: all 0.2s;
-                        -webkit-transition: all 0.2s;
-                        -moz-transition: all 0.2s;
-                        -ms-transition: all 0.2s;
-                        -o-transition: all 0.2s;
-
-                        .btn-trailer {
-                            width: 60px;
-                            height: 60px;
-                            top: 50%;
-                            visibility: visible;
-                        }
-                    }
-
-                    &:hover {
-                        .film__overlay {
-                            opacity: 1;
-                        }
-
-                        .card-body {
-                            visibility: hidden;
-                        }
-
-                        .btn-buy-now {
-                            visibility: visible;
-                        }
-                    }
-                }
-            }
+        .nav-link.active {
+          @include text(getColor("primary"), getFz("h5"), getFw("regular"));
+          cursor: default;
         }
+      }
     }
 
-    @include respond-to('extra-large') {
-        padding: spacing(7.5, 5);
+    .tab-content {
+      .slick-arrow {
+        top: 48%;
+        z-index: 1;
+        &::before {
+          font-size: 50px;
+          color: getBg("black");
+        }
+      }
+
+      .slick-prev {
+        left: -60px;
+      }
+
+      .slick-next {
+        right: -30px;
+      }
+
+      .film-block__item {
+        padding: spacing(2, 0.8);
         padding-bottom: 0;
 
-        .btn-buy-now {
-            top: 300px;
-        }
-    }
+        .card {
+          padding-bottom: 0;
+          margin-bottom: spacing(2.5);
+          cursor: pointer;
+          border: none;
 
-    @include respond-to('large') {
-        .btn-buy-now {
-            top: 88%;
-        }
-        .slick-prev {
-            left: -45px !important;            
+          .film__rating {
+            z-index: 1;
+            @include text(getColor("white"), getFz("body1"), getFw("regular"));
+            background-color: rgba(12, 27, 54, 0.8);
+            border: 1px solid getBg("film_star");
+            border-radius: 4px;
+            padding: spacing(0.2);
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 54px;
+            text-align: center;
+            line-height: 1.1;
+
+            .rating__text {
+              margin: 0;
+              text-align: center;
+            }
+
+            .rating__star {
+              margin: 0;
+              display: flex;
+              justify-content: center;
+              padding: spacing(0.5);
+
+              img {
+                border: 0;
+                max-width: 8px;
+                width: 100%;
+              }
+            }
           }
 
-          .slick-next {
-            right: -10px !important;            
+          .film__thumbnail {
+            position: relative;
+            border-radius: 4px;
+            padding-top: 145%;
+            padding-bottom: spacing(1);
+            background-size: cover;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            margin-bottom: spacing(1);
           }
-    }
 
-    @include respond-to('small') {
-        padding: spacing(7.5, 10);
-        padding-bottom: 0;
+          .card-body {
+            padding: 0;
+            height: 50px;
 
-        .nav-item {
-            .nav-link {
-                font-size: getFz("body1") !important;
-                line-height: 16px;
-                height: 16px;
+            .film__name {
+              margin: 0;
+              @include text(
+                getColor("black"),
+                getFz("body1"),
+                getFw("regular")
+              );
 
-                &:hover {
-                    font-size: getFz("h6") !important;
-                }
+              .film__name__header {
+                background-color: getBg("primary");
+                @include text(
+                  getColor("white"),
+                  getFz("body2"),
+                  getFw("regular")
+                );
+                padding: spacing(0, 0.5);
+                text-align: center;
+                display: inline-block;
+                margin-right: spacing(0.8);
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+              }
             }
 
-            .nav-link.active {
-                font-size: getFz("h6") !important;
+            .film__time {
+              margin-top: spacing(0.8);
+              margin-bottom: spacing(1.5);
+              @include text(
+                getColor("black_1"),
+                getFz("subtitle1"),
+                getFw("regular")
+              );
             }
-        }
+          }
 
-        .film-block__item {
-            padding: spacing(0, 2);
-        }
+          .film__overlay {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, #000, transparent 100%);
+            transition: all 0.2s;
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -ms-transition: all 0.2s;
+            -o-transition: all 0.2s;
 
-        .btn-buy-now {
-            top: 90%;
-        }
-    }
-
-    @media screen and (max-width : 500px) {
-        padding: spacing(7.5, 8) !important;
-
-        .film-block__item {
-            padding: spacing(0);
-        }
-
-        .nav-item {
-            .nav-link {
-                display: block;
-                margin-bottom: spacing(1);
+            .btn-trailer {
+              width: 60px;
+              height: 60px;
+              top: 50%;
+              visibility: visible;
             }
+          }
+
+          &:hover {
+            .film__overlay {
+              opacity: 1;
+            }
+
+            .card-body {
+              visibility: hidden;
+            }
+
+            .btn-buy-now {
+              visibility: visible;
+            }
+          }
         }
+      }
+
+      .comingSoon,
+      .nowShowing {
+        color: #0c5460;
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+        padding: 0.75rem 1.25rem;
+        text-align: center;
+        margin-bottom: spacing(2);
+        font-size: getFz("body1") + 2;
+      }
+    }
+  }
+
+  @include respond-to("extra-large") {
+    padding: spacing(7.5, 5);
+    padding-bottom: 0;
+
+    .btn-buy-now {
+      top: 300px;
+    }
+  }
+
+  @include respond-to("large") {
+    .btn-buy-now {
+      top: 88%;
+    }
+    .slick-prev {
+      left: -45px !important;
     }
 
-    @include respond-to('x-small') {
-        padding: spacing(7.5, 5) !important;
-        padding-bottom: 0 !important;
+    .slick-next {
+      right: -10px !important;
+    }
+  }
 
-        .btn-buy-now {
-            top: 88%;
+  @include respond-to("small") {
+    padding: spacing(7.5, 10);
+    padding-bottom: 0;
+
+    .nav-item {
+      .nav-link {
+        font-size: getFz("body1") !important;
+        line-height: 16px;
+        height: 16px;
+
+        &:hover {
+          font-size: getFz("h6") !important;
         }
+      }
+
+      .nav-link.active {
+        font-size: getFz("h6") !important;
+      }
     }
 
-    @media screen and (max-width : 320px) {
-        .btn-buy-now {
-            top: 84%;
-        }
+    .film-block__item {
+      padding: spacing(0, 2);
     }
+
+    .btn-buy-now {
+      top: 90%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: spacing(7.5, 8) !important;
+
+    .film-block__item {
+      padding: spacing(0);
+    }
+
+    .nav-item {
+      .nav-link {
+        display: block;
+        margin-bottom: spacing(1);
+      }
+    }
+  }
+
+  @include respond-to("x-small") {
+    padding: spacing(7.5, 5) !important;
+    padding-bottom: 0 !important;
+
+    .btn-buy-now {
+      top: 88%;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .btn-buy-now {
+      top: 84%;
+    }
+  }
 }

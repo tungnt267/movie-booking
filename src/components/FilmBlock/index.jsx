@@ -68,58 +68,63 @@ const FilmBlock = () => {
     let nowShowingArr = unique?.filter(
       (movie) => convertDate(movie.ngayKhoiChieu) <= currentTime.getTime()
     );
-    return nowShowingArr?.map((movie, index) => {
-      return (
-        <div key={index} className="film-block__item">
-          <div className="card">
-            <span className="film__rating">
-              <p className="rating__text">{movie.danhGia}</p>
-              <p className="rating__star">
-                <img src="../images/filmBlock/star1.png" alt="star1" />
-                <img src="../images/filmBlock/star1.png" alt="star1" />
-                <img src="../images/filmBlock/star1.png" alt="star1" />
-                <img src="../images/filmBlock/star1.png" alt="star1" />
-                <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
-              </p>
-            </span>
-            <div
-              className="film__thumbnail"
-              style={{
-                backgroundImage: `url(${movie.hinhAnh})`,
-              }}
-            >
-              <div className="film__overlay">
-                <button
-                  className="btn-trailer"
-                  href="#"
-                  data-toggle="modal"
-                  data-target={`#carouselModal${movie.maPhim}`}
-                >
-                  <img
-                    src="../images/carousel/play-video.png"
-                    alt="play-video"
-                  />
-                </button>
+
+    return nowShowingArr.length > 0 ? (
+      nowShowingArr?.map((movie, index) => {
+        return (
+          <div key={index} className="film-block__item">
+            <div className="card">
+              <span className="film__rating">
+                <p className="rating__text">{movie.danhGia}</p>
+                <p className="rating__star">
+                  <img src="../images/filmBlock/star1.png" alt="star1" />
+                  <img src="../images/filmBlock/star1.png" alt="star1" />
+                  <img src="../images/filmBlock/star1.png" alt="star1" />
+                  <img src="../images/filmBlock/star1.png" alt="star1" />
+                  <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
+                </p>
+              </span>
+              <div
+                className="film__thumbnail"
+                style={{
+                  backgroundImage: `url(${movie.hinhAnh})`,
+                }}
+              >
+                <div className="film__overlay">
+                  <button
+                    className="btn-trailer"
+                    href="#"
+                    data-toggle="modal"
+                    data-target={`#carouselModal${movie.maPhim}`}
+                  >
+                    <img
+                      src="../images/carousel/play-video.png"
+                      alt="play-video"
+                    />
+                  </button>
+                </div>
               </div>
+              <div className="card-body">
+                <h4 className="card-title film__name">
+                  <span className="film__name__header">{movie.maNhom}</span>
+                  {movie.tenPhim}
+                </h4>
+                <p className="film__time">103 phút</p>
+              </div>
+              <NavLink
+                to={`/detail/${movie.maPhim}`}
+                target="_blank"
+                className="btn-buy-now"
+              >
+                Mua vé
+              </NavLink>
             </div>
-            <div className="card-body">
-              <h4 className="card-title film__name">
-                <span className="film__name__header">{movie.maNhom}</span>
-                {movie.tenPhim}
-              </h4>
-              <p className="film__time">103 phút</p>
-            </div>
-            <NavLink
-              to={`/detail/${movie.maPhim}`}
-              target="_blank"
-              className="btn-buy-now"
-            >
-              Mua vé
-            </NavLink>
           </div>
-        </div>
-      );
-    });
+        );
+      })
+    ) : (
+      <div className="nowShowing">Hiện không có phim sắp chiếu</div>
+    );
   };
 
   const renderComingSoon = () => {
@@ -134,63 +139,67 @@ const FilmBlock = () => {
       (movie) => convertDate(movie.ngayKhoiChieu) > currentTime.getTime()
     );
 
-    return comingSoonArr?.map((movie, index) => {
-      return (
-        <div key={index} className="film-block__item">
-          <div className="card">
-            <span className="film__rating">
-              <p className="rating__text">{movie.danhGia}</p>
-              <p className="rating__star">
-                <img src="../images/filmBlock/star1.png" alt="star1" />
-                <img src="../images/filmBlock/star1.png" alt="star1" />
-                <img src="../images/filmBlock/star1.png" alt="star1" />
-                <img src="../images/filmBlock/star1.png" alt="star1" />
-                <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
-              </p>
-            </span>
-            <div
-              className="film__thumbnail"
-              style={{
-                backgroundImage: `url(${movie.hinhAnh})`,
-              }}
-            >
-              <div className="film__overlay">
-                <button
-                  className="btn-trailer"
-                  href="#"
-                  data-toggle="modal"
-                  data-target={`#carouselModal${movie.maPhim}`}
-                >
-                  <img
-                    src="../images/carousel/play-video.png"
-                    alt="play-video"
-                  />
-                </button>
+    return comingSoonArr.length > 0 ? (
+      comingSoonArr?.map((movie, index) => {
+        return (
+          <div key={index} className="film-block__item">
+            <div className="card">
+              <span className="film__rating">
+                <p className="rating__text">{movie.danhGia}</p>
+                <p className="rating__star">
+                  <img src="../images/filmBlock/star1.png" alt="star1" />
+                  <img src="../images/filmBlock/star1.png" alt="star1" />
+                  <img src="../images/filmBlock/star1.png" alt="star1" />
+                  <img src="../images/filmBlock/star1.png" alt="star1" />
+                  <img src="../images/filmBlock/star1.2.png" alt="star1.2" />
+                </p>
+              </span>
+              <div
+                className="film__thumbnail"
+                style={{
+                  backgroundImage: `url(${movie.hinhAnh})`,
+                }}
+              >
+                <div className="film__overlay">
+                  <button
+                    className="btn-trailer"
+                    href="#"
+                    data-toggle="modal"
+                    data-target={`#carouselModal${movie.maPhim}`}
+                  >
+                    <img
+                      src="../images/carousel/play-video.png"
+                      alt="play-video"
+                    />
+                  </button>
+                </div>
               </div>
+              <div className="card-body">
+                <h4 className="card-title film__name">
+                  <span className="film__name__header">{movie.maNhom}</span>
+                  {movie.tenPhim}
+                </h4>
+                <p className="film__time">103 phút</p>
+              </div>
+              <NavLink
+                to={`/detail/${movie.maPhim}`}
+                target="_blank"
+                className="btn-buy-now"
+              >
+                Mua vé
+              </NavLink>
             </div>
-            <div className="card-body">
-              <h4 className="card-title film__name">
-                <span className="film__name__header">{movie.maNhom}</span>
-                {movie.tenPhim}
-              </h4>
-              <p className="film__time">103 phút</p>
-            </div>
-            <NavLink
-              to={`/detail/${movie.maPhim}`}
-              target="_blank"
-              className="btn-buy-now"
-            >
-              Mua vé
-            </NavLink>
           </div>
-        </div>
-      );
-    });
+        );
+      })
+    ) : (
+      <div className="comingSoon">Hiện không có phim sắp chiếu</div>
+    );
   };
 
   return (
     <div>
-      <div className="film-block">
+      <div className="film-block" id="filmBlock">
         <div className="film-block__tab">
           {/* Nav tabs */}
           <ul className="nav nav-tabs">
@@ -204,7 +213,7 @@ const FilmBlock = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" data-toggle= "tab" href="#comingSoon">
+              <a className="nav-link" data-toggle="tab" href="#comingSoon">
                 Sắp Chiếu
               </a>
             </li>
